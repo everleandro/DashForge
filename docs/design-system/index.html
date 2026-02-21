@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DashForge Design System - Material Design 3</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --df-color-primary: #6750a4;
+      --df-color-on-primary: #ffffff;
+      --df-color-background: #fffbfe;
+      --df-color-surface: #fffbfe;
+      --df-color-on-surface: #1c1b1f;
+      --df-color-text: #1c1b1f;
+      --df-spacing-md: 16px;
+      --df-spacing-lg: 24px;
+      --df-spacing-xl: 32px;
+      --df-corner-medium: 12px;
+      --df-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --df-color-primary: #d0bcff;
+        --df-color-background: #1c1b1f;
+        --df-color-surface: #1c1b1f;
+        --df-color-on-surface: #e6e1e5;
+        --df-color-text: #e6e1e5;
+      }
+    }
+
+    html, body {
+      height: 100%;
+      font-family: var(--df-font-family);
+    }
+
+    body {
+      background-color: var(--df-color-background);
+      color: var(--df-color-text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--df-spacing-xl);
+    }
+
+    header {
+      border-bottom: 1px solid rgba(0,0,0, 0.1);
+      padding-bottom: var(--df-spacing-lg);
+      margin-bottom: var(--df-spacing-xl);
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 400;
+      margin-bottom: var(--df-spacing-md);
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 400;
+      margin: var(--df-spacing-xl) 0 var(--df-spacing-lg) 0;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin: var(--df-spacing-lg) 0 var(--df-spacing-md) 0;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      opacity: 0.7;
+      margin-bottom: var(--df-spacing-lg);
+    }
+
+    section {
+      margin-bottom: var(--df-spacing-2xl);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--df-spacing-md);
+      margin: var(--df-spacing-lg) 0;
+    }
+
+    .color-box {
+      aspect-ratio: 1;
+      border-radius: var(--df-corner-medium);
+      padding: var(--df-spacing-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      text-align: center;
+      color: var(--df-color-text);
+      background: white;
+    }
+
+    .color-name {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .color-value {
+      font-family: monospace;
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .contrast-check {
+      margin-bottom: var(--df-spacing-lg);
+    }
+
+    .contrast-light, .contrast-dark {
+      padding: var(--df-spacing-lg);
+      border-radius: var(--df-corner-medium);
+      margin: var(--df-spacing-md) 0;
+      font-weight: 500;
+      text-align: center;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .typography-specimen {
+      border-left: 4px solid var(--df-color-primary);
+      padding-left: var(--df-spacing-md);
+    }
+
+    .specimen-info {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-top: 8px;
+      font-family: monospace;
+    }
+
+    nav {
+      display: flex;
+      gap: var(--df-spacing-md);
+      margin-bottom: var(--df-spacing-xl);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 8px 16px;
+      background-color: var(--df-color-primary);
+      color: var(--df-color-on-primary);
+      border-radius: var(--df-corner-medium);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 200ms;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .palette {
+      margin-bottom: var(--df-spacing-2xl);
+    }
+
+    code {
+      background-color: rgba(0,0,0,0.05);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .color-box {
+        background: rgba(255,255,255,0.05);
+      }
+
+      code {
+        background-color: rgba(255,255,255,0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>DashForge Design System</h1>
+      <p class="subtitle">Material Design 3 based design tokens and component library</p>
+      <nav>
+        <a href="#colors">Colors</a>
+        <a href="#typography">Typography</a>
+        <a href="#spacing">Spacing</a>
+        <a href="#shapes">Shapes</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="colors">
+        <h2>Color System</h2>
+        <p>DashForge uses Material Design 3 color system with primary, secondary, tertiary, and error colors, plus neutral and surface variants.</p>
+        
+    <section class="palette">
+      <h2>Color Palette</h2>
+      <div class="color-grid">
+        
+      <div class="color-box" style="background-color: #6750a4">
+        <div class="color-name">primary</div>
+        <div class="color-value">#6750a4</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ffffff">
+        <div class="color-name">on-primary</div>
+        <div class="color-value">#ffffff</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #eaddff">
+        <div class="color-name">primary-container</div>
+        <div class="color-value">#eaddff</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #21005e">
+        <div class="color-name">on-primary-container</div>
+        <div class="color-value">#21005e</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #625b71">
+        <div class="color-name">secondary</div>
+        <div class="color-value">#625b71</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ffffff">
+        <div class="color-name">on-secondary</div>
+        <div class="color-value">#ffffff</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #e8def8">
+        <div class="color-name">secondary-container</div>
+        <div class="color-value">#e8def8</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #1d192b">
+        <div class="color-name">on-secondary-container</div>
+        <div class="color-value">#1d192b</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #7d5260">
+        <div class="color-name">tertiary</div>
+        <div class="color-value">#7d5260</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ffffff">
+        <div class="color-name">on-tertiary</div>
+        <div class="color-value">#ffffff</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ffd8e4">
+        <div class="color-name">tertiary-container</div>
+        <div class="color-value">#ffd8e4</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #31111d">
+        <div class="color-name">on-tertiary-container</div>
+        <div class="color-value">#31111d</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #b3261e">
+        <div class="color-name">error</div>
+        <div class="color-value">#b3261e</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ffffff">
+        <div class="color-name">on-error</div>
+        <div class="color-value">#ffffff</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #f9dedc">
+        <div class="color-name">error-container</div>
+        <div class="color-value">#f9dedc</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #410e0b">
+        <div class="color-name">on-error-container</div>
+        <div class="color-value">#410e0b</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #1c1b1f">
+        <div class="color-name">neutral</div>
+        <div class="color-value">#1c1b1f</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ffffff">
+        <div class="color-name">on-neutral</div>
+        <div class="color-value">#ffffff</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #49454e">
+        <div class="color-name">neutral-variant</div>
+        <div class="color-value">#49454e</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ffffff">
+        <div class="color-name">on-neutral-variant</div>
+        <div class="color-value">#ffffff</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #fffbfe">
+        <div class="color-name">background</div>
+        <div class="color-value">#fffbfe</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #fffbfe">
+        <div class="color-name">surface</div>
+        <div class="color-value">#fffbfe</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #ded8e1">
+        <div class="color-name">surface-dim</div>
+        <div class="color-value">#ded8e1</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #fffbfe">
+        <div class="color-name">surface-bright</div>
+        <div class="color-value">#fffbfe</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #1c1b1f">
+        <div class="color-name">on-surface</div>
+        <div class="color-value">#1c1b1f</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #49454e">
+        <div class="color-name">on-surface-variant</div>
+        <div class="color-value">#49454e</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #1c1b1f">
+        <div class="color-name">text</div>
+        <div class="color-value">#1c1b1f</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #49454e">
+        <div class="color-name">text-secondary</div>
+        <div class="color-value">#49454e</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #79747e">
+        <div class="color-name">text-tertiary</div>
+        <div class="color-value">#79747e</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #79747e">
+        <div class="color-name">outline</div>
+        <div class="color-value">#79747e</div>
+      </div>
+    
+      <div class="color-box" style="background-color: #cac7d0">
+        <div class="color-name">outline-variant</div>
+        <div class="color-value">#cac7d0</div>
+      </div>
+    
+      </div>
+    </section>
+  
+        <h3>Contrast Verification</h3>
+        <p>All color combinations meet WCAG AA accessibility standards.</p>
+        
+    <div class="contrast-check">
+      <h3>Primary on Primary</h3>
+      <div class="contrast-light" style="background-color: #6750a4; color: #ffffff">
+        Light Theme
+      </div>
+      <div class="contrast-dark" style="background-color: #d0bcff; color: #371e55">
+        Dark Theme
+      </div>
+    </div>
+  
+    <div class="contrast-check">
+      <h3>Primary on Primary Container</h3>
+      <div class="contrast-light" style="background-color: #eaddff; color: #21005e">
+        Light Theme
+      </div>
+      <div class="contrast-dark" style="background-color: #4f378b; color: #eaddff">
+        Dark Theme
+      </div>
+    </div>
+  
+      </section>
+
+      <section id="typography">
+        <h2>Typography Scale</h2>
+        <p>Material Design 3 typography scale with 13 different styles from Display to Label sizes.</p>
+        
+      <div class="typography-specimen" style="
+        font-size: 57px;
+        font-weight: 400;
+        line-height: 64px;
+        letter-spacing: 0px;
+        margin-bottom: 2rem;
+      ">
+        <div>Aa</div>
+        <div class="specimen-info">display-large - 57px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 45px;
+        font-weight: 400;
+        line-height: 52px;
+        letter-spacing: 0px;
+        margin-bottom: 2rem;
+      ">
+        <div>Aa</div>
+        <div class="specimen-info">display-medium - 45px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 44px;
+        letter-spacing: 0px;
+        margin-bottom: 2rem;
+      ">
+        <div>Aa</div>
+        <div class="specimen-info">display-small - 36px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 0px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">headline-large - 32px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: 0px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">headline-medium - 28px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 0px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">headline-small - 24px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 28px;
+        letter-spacing: 0px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">title-large - 22px / 500 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">title-medium - 16px / 500 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">title-small - 14px / 500 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">body-large - 16px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">body-medium - 14px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">body-small - 12px / 400 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">label-large - 14px / 500 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">label-medium - 12px / 500 weight</div>
+      </div>
+    
+      <div class="typography-specimen" style="
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+        margin-bottom: 2rem;
+      ">
+        <div>The quick brown fox</div>
+        <div class="specimen-info">label-small - 11px / 500 weight</div>
+      </div>
+    
+      </section>
+
+      <section id="spacing">
+        <h2>Spacing System</h2>
+        <p>4px-based spacing system for consistent layouts.</p>
+        <ul>
+          <li><code>--df-spacing-xs</code>: 4px</li>
+          <li><code>--df-spacing-sm</code>: 8px</li>
+          <li><code>--df-spacing-md</code>: 16px</li>
+          <li><code>--df-spacing-lg</code>: 24px</li>
+          <li><code>--df-spacing-xl</code>: 32px</li>
+          <li><code>--df-spacing-2xl</code>: 48px</li>
+        </ul>
+      </section>
+
+      <section id="shapes">
+        <h2>Shape System</h2>
+        <p>Border radius tokens for consistent component styling.</p>
+        <ul>
+          <li><code>--df-corner-none</code>: 0px</li>
+          <li><code>--df-corner-extra-small</code>: 4px</li>
+          <li><code>--df-corner-small</code>: 8px</li>
+          <li><code>--df-corner-medium</code>: 12px</li>
+          <li><code>--df-corner-large</code>: 16px</li>
+          <li><code>--df-corner-extra-large</code>: 28px</li>
+          <li><code>--df-corner-full</code>: 9999px</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

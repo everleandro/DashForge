@@ -1,0 +1,7 @@
+@use './_tokens' as *;
+
+/* Light-mode overrides can live here; kept small since JS engine drives variables */
+:root[data-theme="light"] {
+  --df-color-primary: #{$df-color-primary};
+  --df-color-on-primary: #{$df-color-on-primary};
+}

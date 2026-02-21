@@ -1,0 +1,8 @@
+export { createDashboardUI, DashboardUIKey, useDashboardUI, type DashboardUIOptions } from './plugin/createDashboardUI'
+export { useTheme } from './composables/useTheme'
+export * from './types/theme'
+export * from './theme/tokens'
+export { lightTheme, darkTheme } from './theme/themes'
+export { mergeThemes, generateCSSVars, applyTheme } from './theme/themeEngine'
+export { default as VButton } from './components/VButton'
+export { DesignSystemShowcase } from './components/DesignSystemShowcase'

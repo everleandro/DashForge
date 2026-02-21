@@ -1,0 +1,312 @@
+@use './_tokens' as *;
+
+:root {
+  /* ========================================================================
+     COLORS
+     ======================================================================== */
+  
+  // Primary
+  --df-color-primary: #{$df-color-primary};
+  --df-color-on-primary: #{$df-color-on-primary};
+  --df-color-primary-container: #{$df-color-primary-container};
+  --df-color-on-primary-container: #{$df-color-on-primary-container};
+  
+  // Secondary
+  --df-color-secondary: #{$df-color-secondary};
+  --df-color-on-secondary: #{$df-color-on-secondary};
+  --df-color-secondary-container: #{$df-color-secondary-container};
+  --df-color-on-secondary-container: #{$df-color-on-secondary-container};
+  
+  // Tertiary
+  --df-color-tertiary: #{$df-color-tertiary};
+  --df-color-on-tertiary: #{$df-color-on-tertiary};
+  --df-color-tertiary-container: #{$df-color-tertiary-container};
+  --df-color-on-tertiary-container: #{$df-color-on-tertiary-container};
+  
+  // Error
+  --df-color-error: #{$df-color-error};
+  --df-color-on-error: #{$df-color-on-error};
+  --df-color-error-container: #{$df-color-error-container};
+  --df-color-on-error-container: #{$df-color-on-error-container};
+  
+  // Neutral
+  --df-color-neutral: #{$df-color-neutral};
+  --df-color-on-neutral: #{$df-color-on-neutral};
+  --df-color-neutral-variant: #{$df-color-neutral-variant};
+  --df-color-on-neutral-variant: #{$df-color-on-neutral-variant};
+  
+  // Surface
+  --df-color-background: #{$df-color-background};
+  --df-color-surface: #{$df-color-surface};
+  --df-color-surface-dim: #{$df-color-surface-dim};
+  --df-color-surface-bright: #{$df-color-surface-bright};
+  --df-color-on-surface: #{$df-color-on-surface};
+  --df-color-on-surface-variant: #{$df-color-on-surface-variant};
+  
+  // Text
+  --df-color-text: #{$df-color-text};
+  --df-color-text-secondary: #{$df-color-text-secondary};
+  --df-color-text-tertiary: #{$df-color-text-tertiary};
+  
+  // Outline
+  --df-color-outline: #{$df-color-outline};
+  --df-color-outline-variant: #{$df-color-outline-variant};
+  
+  /* ========================================================================
+     SPACING
+     ======================================================================== */
+  
+  --df-spacing-xs: #{$df-spacing-xs};
+  --df-spacing-sm: #{$df-spacing-sm};
+  --df-spacing-md: #{$df-spacing-md};
+  --df-spacing-lg: #{$df-spacing-lg};
+  --df-spacing-xl: #{$df-spacing-xl};
+  --df-spacing-2xl: #{$df-spacing-2xl};
+  
+  /* ========================================================================
+     TYPOGRAPHY - SIZES
+     ======================================================================== */
+  
+  // Display
+  --df-font-size-display-large: #{$df-font-size-display-large};
+  --df-font-size-display-medium: #{$df-font-size-display-medium};
+  --df-font-size-display-small: #{$df-font-size-display-small};
+  
+  // Headline
+  --df-font-size-headline-large: #{$df-font-size-headline-large};
+  --df-font-size-headline-medium: #{$df-font-size-headline-medium};
+  --df-font-size-headline-small: #{$df-font-size-headline-small};
+  
+  // Title
+  --df-font-size-title-large: #{$df-font-size-title-large};
+  --df-font-size-title-medium: #{$df-font-size-title-medium};
+  --df-font-size-title-small: #{$df-font-size-title-small};
+  
+  // Body
+  --df-font-size-body-large: #{$df-font-size-body-large};
+  --df-font-size-body-medium: #{$df-font-size-body-medium};
+  --df-font-size-body-small: #{$df-font-size-body-small};
+  
+  // Label
+  --df-font-size-label-large: #{$df-font-size-label-large};
+  --df-font-size-label-medium: #{$df-font-size-label-medium};
+  --df-font-size-label-small: #{$df-font-size-label-small};
+  
+  /* ========================================================================
+     TYPOGRAPHY - WEIGHTS & FAMILY
+     ======================================================================== */
+  
+  --df-font-weight-regular: #{$df-font-weight-regular};
+  --df-font-weight-medium: #{$df-font-weight-medium};
+  --df-font-family: #{$df-font-family};
+  
+  /* ========================================================================
+     SHAPE (Border Radius)
+     ======================================================================== */
+  
+  --df-corner-none: #{$df-corner-none};
+  --df-corner-extra-small: #{$df-corner-extra-small};
+  --df-corner-small: #{$df-corner-small};
+  --df-corner-medium: #{$df-corner-medium};
+  --df-corner-large: #{$df-corner-large};
+  --df-corner-extra-large: #{$df-corner-extra-large};
+  --df-corner-full: #{$df-corner-full};
+  
+  /* ========================================================================
+     ELEVATION (Shadows)
+     ======================================================================== */
+  
+  --df-elevation-0: #{$df-elevation-0};
+  --df-elevation-1: #{$df-elevation-1};
+  --df-elevation-2: #{$df-elevation-2};
+  --df-elevation-3: #{$df-elevation-3};
+  --df-elevation-4: #{$df-elevation-4};
+  --df-elevation-5: #{$df-elevation-5};
+  
+  /* ========================================================================
+     TRANSITIONS
+     ======================================================================== */
+  
+  --df-transition-short: #{$df-transition-short};
+  --df-transition-medium: #{$df-transition-medium};
+  --df-transition-long: #{$df-transition-long};
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background: var(--df-color-background);
+  color: var(--df-color-text);
+  font-family: var(--df-font-family);
+  font-size: var(--df-font-size-body-medium);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================================
+   TYPOGRAPHY UTILITY CLASSES
+   ============================================================================ */
+
+.df-display-large {
+  font-size: var(--df-font-size-display-large);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 64px;
+  letter-spacing: 0px;
+}
+
+.df-display-medium {
+  font-size: var(--df-font-size-display-medium);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 52px;
+  letter-spacing: 0px;
+}
+
+.df-display-small {
+  font-size: var(--df-font-size-display-small);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 44px;
+  letter-spacing: 0px;
+}
+
+.df-headline-large {
+  font-size: var(--df-font-size-headline-large);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 40px;
+  letter-spacing: 0px;
+}
+
+.df-headline-medium {
+  font-size: var(--df-font-size-headline-medium);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 36px;
+  letter-spacing: 0px;
+}
+
+.df-headline-small {
+  font-size: var(--df-font-size-headline-small);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 32px;
+  letter-spacing: 0px;
+}
+
+.df-title-large {
+  font-size: var(--df-font-size-title-large);
+  font-weight: var(--df-font-weight-medium);
+  line-height: 28px;
+  letter-spacing: 0px;
+}
+
+.df-title-medium {
+  font-size: var(--df-font-size-title-medium);
+  font-weight: var(--df-font-weight-medium);
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.df-title-small {
+  font-size: var(--df-font-size-title-small);
+  font-weight: var(--df-font-weight-medium);
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.df-body-large {
+  font-size: var(--df-font-size-body-large);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.df-body-medium {
+  font-size: var(--df-font-size-body-medium);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+.df-body-small {
+  font-size: var(--df-font-size-body-small);
+  font-weight: var(--df-font-weight-regular);
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.df-label-large {
+  font-size: var(--df-font-size-label-large);
+  font-weight: var(--df-font-weight-medium);
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.df-label-medium {
+  font-size: var(--df-font-size-label-medium);
+  font-weight: var(--df-font-weight-medium);
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.df-label-small {
+  font-size: var(--df-font-size-label-small);
+  font-weight: var(--df-font-weight-medium);
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   DARK THEME OVERRIDES
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Primary
+    --df-color-primary: #d0bcff;
+    --df-color-on-primary: #371e55;
+    --df-color-primary-container: #4f378b;
+    --df-color-on-primary-container: #eaddff;
+    
+    // Secondary
+    --df-color-secondary: #ccc7d8;
+    --df-color-on-secondary: #312e42;
+    --df-color-secondary-container: #4a4458;
+    --df-color-on-secondary-container: #e8def8;
+    
+    // Tertiary
+    --df-color-tertiary: #f0b6cd;
+    --df-color-on-tertiary: #492532;
+    --df-color-tertiary-container: #633b48;
+    --df-color-on-tertiary-container: #ffd8e4;
+    
+    // Error
+    --df-color-error: #f2b8b5;
+    --df-color-on-error: #601410;
+    --df-color-error-container: #8c1d18;
+    --df-color-on-error-container: #f9dedc;
+    
+    // Neutral
+    --df-color-neutral: #e6e1e5;
+    --df-color-on-neutral: #313033;
+    --df-color-neutral-variant: #cac7d0;
+    --df-color-on-neutral-variant: #49454e;
+    
+    // Surface
+    --df-color-background: #1c1b1f;
+    --df-color-surface: #1c1b1f;
+    --df-color-surface-dim: #0f0d13;
+    --df-color-surface-bright: #36343b;
+    --df-color-on-surface: #e6e1e5;
+    --df-color-on-surface-variant: #cac7d0;
+    
+    // Text
+    --df-color-text: #e6e1e5;
+    --df-color-text-secondary: #cac7d0;
+    --df-color-text-tertiary: #b0adb8;
+    
+    // Outline
+    --df-color-outline: #938f99;
+    --df-color-outline-variant: #49454e;
+  }
+}
