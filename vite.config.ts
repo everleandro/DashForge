@@ -25,7 +25,6 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      // externalize deps that shouldn't be bundled
       external: ["vue"],
       output: {
         globals: {

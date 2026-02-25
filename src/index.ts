@@ -1,3 +1,6 @@
+// Import all global styles - ensures CSS variables are included in the bundle
+import './styles.scss'
+
 export { createDashboardUI, DashboardUIKey, useDashboardUI, type DashboardUIOptions } from './plugin/createDashboardUI'
 export { useTheme } from './composables/useTheme'
 export type { Size, ColorKey } from './types/common'
@@ -15,3 +18,4 @@ export { default as VButton } from './components/VButton'
 export { default as VIcon } from './components/VIcon'
 // Composables y utilidades
 export { useUtils } from './composables/utils'
+

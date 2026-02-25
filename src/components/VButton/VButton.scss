@@ -187,7 +187,7 @@
       &.v-btn--fab {
         height: var(--df-btn-height, var(--df-fab-height-#{$size}));
         width: var(--df-btn-height, var(--df-fab-height-#{$size}));
-        font-size: var(--df-btn-font-size, var(--df-fab-font-sizes-#{$size}));
+        font-size: var(--df-btn-font-size, var(--df-fab-font-size-#{$size}));
       }
 
       &.v-btn--icon {

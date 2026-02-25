@@ -3,6 +3,11 @@
 @use './utilities/colors.scss';
 @use './loaders.scss';
 @use './global.scss';
-@use './components/_btn-variables.scss';
-@use './components/_icon-variables.scss';
+
+// ============================================================================
+// Component CSS Variables
+// Re-export component variables for visibility and proper module structure
+// ============================================================================
+@forward './components';
+
 
