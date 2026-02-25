@@ -1,14 +1,7 @@
 import { Theme, PartialTheme } from '../types/theme'
 
-// Helper to safely merge nested objects with proper typing
-function mergeObjects<T extends Record<string, any>>(
-  base: T | undefined,
-  partial: Partial<T> | undefined
-): T {
-  if (!base) return (partial as T) || ({} as T)
-  if (!partial) return base
-  return { ...base, ...partial } as T
-}
+// Style element to hold dynamically generated utility classes
+let utilityStyleElement: HTMLStyleElement | null = null
 
 export function mergeThemes(base: Theme, partial: PartialTheme): Theme {
   if (!partial) return base
@@ -31,10 +24,6 @@ export function mergeThemes(base: Theme, partial: PartialTheme): Theme {
     elevation: base.elevation && partial.elevation
       ? { ...base.elevation, ...partial.elevation }
       : partial.elevation || base.elevation,
-    components: {
-      ...base.components,
-      ...(partial.components || {})
-    },
     tokens: {
       ...base.tokens,
       ...(partial.tokens || {})
@@ -47,16 +36,8 @@ export function generateCSSVars(theme: Theme): Record<string, string> {
   
   // Map all colors
   if (theme.colors) {
-    const colors = theme.colors as any
-    Object.keys(colors).forEach(key => {
-      if (typeof colors[key] === 'string') {
-        vars[`--df-color-${key}`] = colors[key]
-      } else if (typeof colors[key] === 'object' && colors[key].base) {
-        vars[`--df-color-${key}`] = colors[key].base
-        if (colors[key]['on-base']) {
-          vars[`--df-color-on-${key}`] = colors[key]['on-base']
-        }
-      }
+    Object.entries(theme.colors).forEach(([key, value]) => {
+      vars[`--df-color-${key}`] = value
     })
   }
   
@@ -101,11 +82,76 @@ export function generateCSSVars(theme: Theme): Record<string, string> {
   return vars
 }
 
-export function applyTheme(theme: Theme) {
+/**
+ * Generates utility classes dynamically for custom theme colors
+ * Creates .bg-*, .text-*, and .border-* classes for each color in the theme
+ * 
+ * @param theme - Theme object with colors
+ * @param options - Configuration options
+ * @returns void
+ * 
+ * @example
+ * ```ts
+ * const customTheme = createTheme({
+ *   colors: { brand: '#ff6b35' }
+ * })
+ * applyTheme(customTheme) // Automatically generates .bg-brand, .text-brand, etc.
+ * ```
+ */
+export function generateUtilityClasses(theme: Theme, options: { replace?: boolean } = {}) {
+  if (typeof document === 'undefined') return
+
+  // Create or get existing style element
+  // Check if element is still in DOM (it might have been removed externally)
+  const elementInDOM = utilityStyleElement && document.head.contains(utilityStyleElement)
+  
+  if (!elementInDOM || options.replace) {
+    // Remove old element if replacing or if reference is stale
+    if (utilityStyleElement && document.head.contains(utilityStyleElement)) {
+      utilityStyleElement.remove()
+    }
+
+    utilityStyleElement = document.createElement('style')
+    utilityStyleElement.setAttribute('data-dashforge-utilities', 'true')
+    utilityStyleElement.setAttribute('type', 'text/css')
+    document.head.appendChild(utilityStyleElement)
+  }
+
+  // Generate CSS rules for each color
+  const cssRules: string[] = []
+  
+  if (theme.colors) {
+    Object.entries(theme.colors).forEach(([key, value]) => {
+      // Background utilities
+      cssRules.push(`.bg-${key}{background-color:var(--df-color-${key},${value})!important}`)
+      
+      // Text utilities
+      cssRules.push(`.text-${key}{color:var(--df-color-${key},${value})!important}`)
+      
+      // Border utilities
+      cssRules.push(`.border-${key}{border-color:var(--df-color-${key},${value})!important}`)
+    })
+  }
+
+  // Insert rules into style element (guaranteed to exist after checks above)
+  if (utilityStyleElement) {
+    utilityStyleElement.textContent = cssRules.join('\n')
+  }
+}
+
+export function applyTheme(theme: Theme, options: { generateUtilities?: boolean } = {}) {
+  if (typeof document === 'undefined') return
+  
+  // Apply CSS variables
   const vars = generateCSSVars(theme)
   const root = document.documentElement
   for (const k in vars) {
     root.style.setProperty(k, vars[k])
+  }
+
+  // Generate utility classes for custom colors (opt-in)
+  if (options.generateUtilities) {
+    generateUtilityClasses(theme, { replace: true })
   }
 }
 

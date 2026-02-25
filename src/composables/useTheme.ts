@@ -14,7 +14,8 @@ export function useTheme() {
     else if ((theme as Theme).colors) resolved = mergeThemes(lightTheme, theme as PartialTheme)
     else resolved = mergeThemes(lightTheme, theme as PartialTheme)
 
-    applyTheme(resolved)
+    const generateUtilities = ctx?.generateUtilities ?? false
+    applyTheme(resolved, { generateUtilities })
     if (ctx) ctx.theme = resolved
     return resolved
   }

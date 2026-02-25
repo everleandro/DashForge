@@ -1,0 +1,36 @@
+// Mixin para definir animaciones con keyframes
+@mixin animation($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+}
+
+
+@mixin prefix($property, $value, $prefixes: webkit ms moz) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    #{$property}: $value;
+}
+
+@mixin button-before() {
+    &:before {
+        content: '';
+        background-color: currentColor;
+        border-radius: inherit;
+        bottom: 0;
+        opacity: 0;
+        left: 0;
+        top: 0;
+        right: 0;
+        color: inherit;
+        pointer-events: none;
+        position: absolute;
+        transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+    }
+}

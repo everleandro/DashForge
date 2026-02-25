@@ -1,0 +1,359 @@
+// Generated utility classes for colors
+// Auto-generated from tokens.ts - DO NOT EDIT MANUALLY
+
+.bg-primary { background-color: var(--df-color-primary, #00af67); }
+.text-primary { color: var(--df-color-primary, #00af67); }
+.border-primary { border-color: var(--df-color-primary, #00af67); }
+
+.bg-on-primary { background-color: var(--df-color-on-primary, #ffffff); }
+.text-on-primary { color: var(--df-color-on-primary, #ffffff); }
+.border-on-primary { border-color: var(--df-color-on-primary, #ffffff); }
+
+.bg-primary-container { background-color: var(--df-color-primary-container, #b1f5db); }
+.text-primary-container { color: var(--df-color-primary-container, #b1f5db); }
+.border-primary-container { border-color: var(--df-color-primary-container, #b1f5db); }
+
+.bg-on-primary-container { background-color: var(--df-color-on-primary-container, #00291b); }
+.text-on-primary-container { color: var(--df-color-on-primary-container, #00291b); }
+.border-on-primary-container { border-color: var(--df-color-on-primary-container, #00291b); }
+
+.bg-secondary { background-color: var(--df-color-secondary, #625b71); }
+.text-secondary { color: var(--df-color-secondary, #625b71); }
+.border-secondary { border-color: var(--df-color-secondary, #625b71); }
+
+.bg-on-secondary { background-color: var(--df-color-on-secondary, #ffffff); }
+.text-on-secondary { color: var(--df-color-on-secondary, #ffffff); }
+.border-on-secondary { border-color: var(--df-color-on-secondary, #ffffff); }
+
+.bg-secondary-container { background-color: var(--df-color-secondary-container, #e8def8); }
+.text-secondary-container { color: var(--df-color-secondary-container, #e8def8); }
+.border-secondary-container { border-color: var(--df-color-secondary-container, #e8def8); }
+
+.bg-on-secondary-container { background-color: var(--df-color-on-secondary-container, #1d192b); }
+.text-on-secondary-container { color: var(--df-color-on-secondary-container, #1d192b); }
+.border-on-secondary-container { border-color: var(--df-color-on-secondary-container, #1d192b); }
+
+.bg-success { background-color: var(--df-color-success, #4caf50); }
+.text-success { color: var(--df-color-success, #4caf50); }
+.border-success { border-color: var(--df-color-success, #4caf50); }
+
+.bg-on-success { background-color: var(--df-color-on-success, #ffffff); }
+.text-on-success { color: var(--df-color-on-success, #ffffff); }
+.border-on-success { border-color: var(--df-color-on-success, #ffffff); }
+
+.bg-success-container { background-color: var(--df-color-success-container, #c8e6c9); }
+.text-success-container { color: var(--df-color-success-container, #c8e6c9); }
+.border-success-container { border-color: var(--df-color-success-container, #c8e6c9); }
+
+.bg-on-success-container { background-color: var(--df-color-on-success-container, #1b5e20); }
+.text-on-success-container { color: var(--df-color-on-success-container, #1b5e20); }
+.border-on-success-container { border-color: var(--df-color-on-success-container, #1b5e20); }
+
+.bg-warning { background-color: var(--df-color-warning, #ffb300); }
+.text-warning { color: var(--df-color-warning, #ffb300); }
+.border-warning { border-color: var(--df-color-warning, #ffb300); }
+
+.bg-on-warning { background-color: var(--df-color-on-warning, #000000); }
+.text-on-warning { color: var(--df-color-on-warning, #000000); }
+.border-on-warning { border-color: var(--df-color-on-warning, #000000); }
+
+.bg-warning-container { background-color: var(--df-color-warning-container, #ffe082); }
+.text-warning-container { color: var(--df-color-warning-container, #ffe082); }
+.border-warning-container { border-color: var(--df-color-warning-container, #ffe082); }
+
+.bg-on-warning-container { background-color: var(--df-color-on-warning-container, #ff6f00); }
+.text-on-warning-container { color: var(--df-color-on-warning-container, #ff6f00); }
+.border-on-warning-container { border-color: var(--df-color-on-warning-container, #ff6f00); }
+
+.bg-error { background-color: var(--df-color-error, #b3261e); }
+.text-error { color: var(--df-color-error, #b3261e); }
+.border-error { border-color: var(--df-color-error, #b3261e); }
+
+.bg-on-error { background-color: var(--df-color-on-error, #ffffff); }
+.text-on-error { color: var(--df-color-on-error, #ffffff); }
+.border-on-error { border-color: var(--df-color-on-error, #ffffff); }
+
+.bg-error-container { background-color: var(--df-color-error-container, #f9dedc); }
+.text-error-container { color: var(--df-color-error-container, #f9dedc); }
+.border-error-container { border-color: var(--df-color-error-container, #f9dedc); }
+
+.bg-on-error-container { background-color: var(--df-color-on-error-container, #410e0b); }
+.text-on-error-container { color: var(--df-color-on-error-container, #410e0b); }
+.border-on-error-container { border-color: var(--df-color-on-error-container, #410e0b); }
+
+.bg-info { background-color: var(--df-color-info, #2196f3); }
+.text-info { color: var(--df-color-info, #2196f3); }
+.border-info { border-color: var(--df-color-info, #2196f3); }
+
+.bg-on-info { background-color: var(--df-color-on-info, #ffffff); }
+.text-on-info { color: var(--df-color-on-info, #ffffff); }
+.border-on-info { border-color: var(--df-color-on-info, #ffffff); }
+
+.bg-info-container { background-color: var(--df-color-info-container, #bbdefb); }
+.text-info-container { color: var(--df-color-info-container, #bbdefb); }
+.border-info-container { border-color: var(--df-color-info-container, #bbdefb); }
+
+.bg-on-info-container { background-color: var(--df-color-on-info-container, #0d47a1); }
+.text-on-info-container { color: var(--df-color-on-info-container, #0d47a1); }
+.border-on-info-container { border-color: var(--df-color-on-info-container, #0d47a1); }
+
+.bg-input { background-color: var(--df-color-input, #eaddff); }
+.text-input { color: var(--df-color-input, #eaddff); }
+.border-input { border-color: var(--df-color-input, #eaddff); }
+
+.bg-on-input { background-color: var(--df-color-on-input, #000000); }
+.text-on-input { color: var(--df-color-on-input, #000000); }
+.border-on-input { border-color: var(--df-color-on-input, #000000); }
+
+.bg-input-container { background-color: var(--df-color-input-container, #fffbfe); }
+.text-input-container { color: var(--df-color-input-container, #fffbfe); }
+.border-input-container { border-color: var(--df-color-input-container, #fffbfe); }
+
+.bg-on-input-container { background-color: var(--df-color-on-input-container, #1c1b1f); }
+.text-on-input-container { color: var(--df-color-on-input-container, #1c1b1f); }
+.border-on-input-container { border-color: var(--df-color-on-input-container, #1c1b1f); }
+
+.bg-grey { background-color: var(--df-color-grey, #79747e); }
+.text-grey { color: var(--df-color-grey, #79747e); }
+.border-grey { border-color: var(--df-color-grey, #79747e); }
+
+.bg-on-grey { background-color: var(--df-color-on-grey, #ffffff); }
+.text-on-grey { color: var(--df-color-on-grey, #ffffff); }
+.border-on-grey { border-color: var(--df-color-on-grey, #ffffff); }
+
+.bg-grey-container { background-color: var(--df-color-grey-container, #cac7d0); }
+.text-grey-container { color: var(--df-color-grey-container, #cac7d0); }
+.border-grey-container { border-color: var(--df-color-grey-container, #cac7d0); }
+
+.bg-on-grey-container { background-color: var(--df-color-on-grey-container, #1c1b1f); }
+.text-on-grey-container { color: var(--df-color-on-grey-container, #1c1b1f); }
+.border-on-grey-container { border-color: var(--df-color-on-grey-container, #1c1b1f); }
+
+.bg-disabled { background-color: var(--df-color-disabled, #e0e0e0); }
+.text-disabled { color: var(--df-color-disabled, #e0e0e0); }
+.border-disabled { border-color: var(--df-color-disabled, #e0e0e0); }
+
+.bg-on-disabled { background-color: var(--df-color-on-disabled, #9e9e9e); }
+.text-on-disabled { color: var(--df-color-on-disabled, #9e9e9e); }
+.border-on-disabled { border-color: var(--df-color-on-disabled, #9e9e9e); }
+
+.bg-disabled-container { background-color: var(--df-color-disabled-container, #ded8e1); }
+.text-disabled-container { color: var(--df-color-disabled-container, #ded8e1); }
+.border-disabled-container { border-color: var(--df-color-disabled-container, #ded8e1); }
+
+.bg-on-disabled-container { background-color: var(--df-color-on-disabled-container, #1c1b1f); }
+.text-on-disabled-container { color: var(--df-color-on-disabled-container, #1c1b1f); }
+.border-on-disabled-container { border-color: var(--df-color-on-disabled-container, #1c1b1f); }
+
+.bg-neutral { background-color: var(--df-color-neutral, #1c1b1f); }
+.text-neutral { color: var(--df-color-neutral, #1c1b1f); }
+.border-neutral { border-color: var(--df-color-neutral, #1c1b1f); }
+
+.bg-on-neutral { background-color: var(--df-color-on-neutral, #ffffff); }
+.text-on-neutral { color: var(--df-color-on-neutral, #ffffff); }
+.border-on-neutral { border-color: var(--df-color-on-neutral, #ffffff); }
+
+.bg-neutral-container { background-color: var(--df-color-neutral-container, #fffbfe); }
+.text-neutral-container { color: var(--df-color-neutral-container, #fffbfe); }
+.border-neutral-container { border-color: var(--df-color-neutral-container, #fffbfe); }
+
+.bg-on-neutral-container { background-color: var(--df-color-on-neutral-container, #1c1b1f); }
+.text-on-neutral-container { color: var(--df-color-on-neutral-container, #1c1b1f); }
+.border-on-neutral-container { border-color: var(--df-color-on-neutral-container, #1c1b1f); }
+
+.bg-neutral-variant { background-color: var(--df-color-neutral-variant, #49454e); }
+.text-neutral-variant { color: var(--df-color-neutral-variant, #49454e); }
+.border-neutral-variant { border-color: var(--df-color-neutral-variant, #49454e); }
+
+.bg-on-neutral-variant { background-color: var(--df-color-on-neutral-variant, #ffffff); }
+.text-on-neutral-variant { color: var(--df-color-on-neutral-variant, #ffffff); }
+.border-on-neutral-variant { border-color: var(--df-color-on-neutral-variant, #ffffff); }
+
+.bg-neutral-variant-container { background-color: var(--df-color-neutral-variant-container, #cac7d0); }
+.text-neutral-variant-container { color: var(--df-color-neutral-variant-container, #cac7d0); }
+.border-neutral-variant-container { border-color: var(--df-color-neutral-variant-container, #cac7d0); }
+
+.bg-on-neutral-variant-container { background-color: var(--df-color-on-neutral-variant-container, #1c1b1f); }
+.text-on-neutral-variant-container { color: var(--df-color-on-neutral-variant-container, #1c1b1f); }
+.border-on-neutral-variant-container { border-color: var(--df-color-on-neutral-variant-container, #1c1b1f); }
+
+.bg-background { background-color: var(--df-color-background, #fffbfe); }
+.text-background { color: var(--df-color-background, #fffbfe); }
+.border-background { border-color: var(--df-color-background, #fffbfe); }
+
+.bg-on-background { background-color: var(--df-color-on-background, #1c1b1f); }
+.text-on-background { color: var(--df-color-on-background, #1c1b1f); }
+.border-on-background { border-color: var(--df-color-on-background, #1c1b1f); }
+
+.bg-background-container { background-color: var(--df-color-background-container, #fffbfe); }
+.text-background-container { color: var(--df-color-background-container, #fffbfe); }
+.border-background-container { border-color: var(--df-color-background-container, #fffbfe); }
+
+.bg-on-background-container { background-color: var(--df-color-on-background-container, #1c1b1f); }
+.text-on-background-container { color: var(--df-color-on-background-container, #1c1b1f); }
+.border-on-background-container { border-color: var(--df-color-on-background-container, #1c1b1f); }
+
+.bg-surface { background-color: var(--df-color-surface, #fffbfe); }
+.text-surface { color: var(--df-color-surface, #fffbfe); }
+.border-surface { border-color: var(--df-color-surface, #fffbfe); }
+
+.bg-on-surface { background-color: var(--df-color-on-surface, #1c1b1f); }
+.text-on-surface { color: var(--df-color-on-surface, #1c1b1f); }
+.border-on-surface { border-color: var(--df-color-on-surface, #1c1b1f); }
+
+.bg-surface-container { background-color: var(--df-color-surface-container, #fffbfe); }
+.text-surface-container { color: var(--df-color-surface-container, #fffbfe); }
+.border-surface-container { border-color: var(--df-color-surface-container, #fffbfe); }
+
+.bg-on-surface-container { background-color: var(--df-color-on-surface-container, #1c1b1f); }
+.text-on-surface-container { color: var(--df-color-on-surface-container, #1c1b1f); }
+.border-on-surface-container { border-color: var(--df-color-on-surface-container, #1c1b1f); }
+
+.bg-surface-dim { background-color: var(--df-color-surface-dim, #ded8e1); }
+.text-surface-dim { color: var(--df-color-surface-dim, #ded8e1); }
+.border-surface-dim { border-color: var(--df-color-surface-dim, #ded8e1); }
+
+.bg-on-surface-dim { background-color: var(--df-color-on-surface-dim, #1c1b1f); }
+.text-on-surface-dim { color: var(--df-color-on-surface-dim, #1c1b1f); }
+.border-on-surface-dim { border-color: var(--df-color-on-surface-dim, #1c1b1f); }
+
+.bg-surface-dim-container { background-color: var(--df-color-surface-dim-container, #ded8e1); }
+.text-surface-dim-container { color: var(--df-color-surface-dim-container, #ded8e1); }
+.border-surface-dim-container { border-color: var(--df-color-surface-dim-container, #ded8e1); }
+
+.bg-on-surface-dim-container { background-color: var(--df-color-on-surface-dim-container, #1c1b1f); }
+.text-on-surface-dim-container { color: var(--df-color-on-surface-dim-container, #1c1b1f); }
+.border-on-surface-dim-container { border-color: var(--df-color-on-surface-dim-container, #1c1b1f); }
+
+.bg-surface-bright { background-color: var(--df-color-surface-bright, #fffbfe); }
+.text-surface-bright { color: var(--df-color-surface-bright, #fffbfe); }
+.border-surface-bright { border-color: var(--df-color-surface-bright, #fffbfe); }
+
+.bg-on-surface-bright { background-color: var(--df-color-on-surface-bright, #1c1b1f); }
+.text-on-surface-bright { color: var(--df-color-on-surface-bright, #1c1b1f); }
+.border-on-surface-bright { border-color: var(--df-color-on-surface-bright, #1c1b1f); }
+
+.bg-surface-bright-container { background-color: var(--df-color-surface-bright-container, #fffbfe); }
+.text-surface-bright-container { color: var(--df-color-surface-bright-container, #fffbfe); }
+.border-surface-bright-container { border-color: var(--df-color-surface-bright-container, #fffbfe); }
+
+.bg-on-surface-bright-container { background-color: var(--df-color-on-surface-bright-container, #1c1b1f); }
+.text-on-surface-bright-container { color: var(--df-color-on-surface-bright-container, #1c1b1f); }
+.border-on-surface-bright-container { border-color: var(--df-color-on-surface-bright-container, #1c1b1f); }
+
+.bg-on-surface-variant { background-color: var(--df-color-on-surface-variant, #49454e); }
+.text-on-surface-variant { color: var(--df-color-on-surface-variant, #49454e); }
+.border-on-surface-variant { border-color: var(--df-color-on-surface-variant, #49454e); }
+
+.bg-text { background-color: var(--df-color-text, #1c1b1f); }
+.text-text { color: var(--df-color-text, #1c1b1f); }
+.border-text { border-color: var(--df-color-text, #1c1b1f); }
+
+.bg-on-text { background-color: var(--df-color-on-text, #fffbfe); }
+.text-on-text { color: var(--df-color-on-text, #fffbfe); }
+.border-on-text { border-color: var(--df-color-on-text, #fffbfe); }
+
+.bg-text-container { background-color: var(--df-color-text-container, #fffbfe); }
+.text-text-container { color: var(--df-color-text-container, #fffbfe); }
+.border-text-container { border-color: var(--df-color-text-container, #fffbfe); }
+
+.bg-on-text-container { background-color: var(--df-color-on-text-container, #1c1b1f); }
+.text-on-text-container { color: var(--df-color-on-text-container, #1c1b1f); }
+.border-on-text-container { border-color: var(--df-color-on-text-container, #1c1b1f); }
+
+.bg-text-secondary { background-color: var(--df-color-text-secondary, #49454e); }
+.text-text-secondary { color: var(--df-color-text-secondary, #49454e); }
+.border-text-secondary { border-color: var(--df-color-text-secondary, #49454e); }
+
+.bg-on-text-secondary { background-color: var(--df-color-on-text-secondary, #fffbfe); }
+.text-on-text-secondary { color: var(--df-color-on-text-secondary, #fffbfe); }
+.border-on-text-secondary { border-color: var(--df-color-on-text-secondary, #fffbfe); }
+
+.bg-text-secondary-container { background-color: var(--df-color-text-secondary-container, #fffbfe); }
+.text-text-secondary-container { color: var(--df-color-text-secondary-container, #fffbfe); }
+.border-text-secondary-container { border-color: var(--df-color-text-secondary-container, #fffbfe); }
+
+.bg-on-text-secondary-container { background-color: var(--df-color-on-text-secondary-container, #1c1b1f); }
+.text-on-text-secondary-container { color: var(--df-color-on-text-secondary-container, #1c1b1f); }
+.border-on-text-secondary-container { border-color: var(--df-color-on-text-secondary-container, #1c1b1f); }
+
+.bg-text-tertiary { background-color: var(--df-color-text-tertiary, #79747e); }
+.text-text-tertiary { color: var(--df-color-text-tertiary, #79747e); }
+.border-text-tertiary { border-color: var(--df-color-text-tertiary, #79747e); }
+
+.bg-on-text-tertiary { background-color: var(--df-color-on-text-tertiary, #fffbfe); }
+.text-on-text-tertiary { color: var(--df-color-on-text-tertiary, #fffbfe); }
+.border-on-text-tertiary { border-color: var(--df-color-on-text-tertiary, #fffbfe); }
+
+.bg-text-tertiary-container { background-color: var(--df-color-text-tertiary-container, #fffbfe); }
+.text-text-tertiary-container { color: var(--df-color-text-tertiary-container, #fffbfe); }
+.border-text-tertiary-container { border-color: var(--df-color-text-tertiary-container, #fffbfe); }
+
+.bg-on-text-tertiary-container { background-color: var(--df-color-on-text-tertiary-container, #1c1b1f); }
+.text-on-text-tertiary-container { color: var(--df-color-on-text-tertiary-container, #1c1b1f); }
+.border-on-text-tertiary-container { border-color: var(--df-color-on-text-tertiary-container, #1c1b1f); }
+
+.bg-outline { background-color: var(--df-color-outline, #79747e); }
+.text-outline { color: var(--df-color-outline, #79747e); }
+.border-outline { border-color: var(--df-color-outline, #79747e); }
+
+.bg-on-outline { background-color: var(--df-color-on-outline, #1c1b1f); }
+.text-on-outline { color: var(--df-color-on-outline, #1c1b1f); }
+.border-on-outline { border-color: var(--df-color-on-outline, #1c1b1f); }
+
+.bg-outline-container { background-color: var(--df-color-outline-container, #ded8e1); }
+.text-outline-container { color: var(--df-color-outline-container, #ded8e1); }
+.border-outline-container { border-color: var(--df-color-outline-container, #ded8e1); }
+
+.bg-on-outline-container { background-color: var(--df-color-on-outline-container, #1c1b1f); }
+.text-on-outline-container { color: var(--df-color-on-outline-container, #1c1b1f); }
+.border-on-outline-container { border-color: var(--df-color-on-outline-container, #1c1b1f); }
+
+.bg-outline-variant { background-color: var(--df-color-outline-variant, #cac7d0); }
+.text-outline-variant { color: var(--df-color-outline-variant, #cac7d0); }
+.border-outline-variant { border-color: var(--df-color-outline-variant, #cac7d0); }
+
+.bg-on-outline-variant { background-color: var(--df-color-on-outline-variant, #1c1b1f); }
+.text-on-outline-variant { color: var(--df-color-on-outline-variant, #1c1b1f); }
+.border-on-outline-variant { border-color: var(--df-color-on-outline-variant, #1c1b1f); }
+
+.bg-outline-variant-container { background-color: var(--df-color-outline-variant-container, #ded8e1); }
+.text-outline-variant-container { color: var(--df-color-outline-variant-container, #ded8e1); }
+.border-outline-variant-container { border-color: var(--df-color-outline-variant-container, #ded8e1); }
+
+.bg-on-outline-variant-container { background-color: var(--df-color-on-outline-variant-container, #1c1b1f); }
+.text-on-outline-variant-container { color: var(--df-color-on-outline-variant-container, #1c1b1f); }
+.border-on-outline-variant-container { border-color: var(--df-color-on-outline-variant-container, #1c1b1f); }
+
+.bg-white { background-color: var(--df-color-white, #ffffff); }
+.text-white { color: var(--df-color-white, #ffffff); }
+.border-white { border-color: var(--df-color-white, #ffffff); }
+
+.bg-on-white { background-color: var(--df-color-on-white, #000000); }
+.text-on-white { color: var(--df-color-on-white, #000000); }
+.border-on-white { border-color: var(--df-color-on-white, #000000); }
+
+.bg-white-container { background-color: var(--df-color-white-container, #fffbfe); }
+.text-white-container { color: var(--df-color-white-container, #fffbfe); }
+.border-white-container { border-color: var(--df-color-white-container, #fffbfe); }
+
+.bg-on-white-container { background-color: var(--df-color-on-white-container, #1c1b1f); }
+.text-on-white-container { color: var(--df-color-on-white-container, #1c1b1f); }
+.border-on-white-container { border-color: var(--df-color-on-white-container, #1c1b1f); }
+
+.bg-black { background-color: var(--df-color-black, #000000); }
+.text-black { color: var(--df-color-black, #000000); }
+.border-black { border-color: var(--df-color-black, #000000); }
+
+.bg-on-black { background-color: var(--df-color-on-black, #ffffff); }
+.text-on-black { color: var(--df-color-on-black, #ffffff); }
+.border-on-black { border-color: var(--df-color-on-black, #ffffff); }
+
+.bg-black-container { background-color: var(--df-color-black-container, #1c1b1f); }
+.text-black-container { color: var(--df-color-black-container, #1c1b1f); }
+.border-black-container { border-color: var(--df-color-black-container, #1c1b1f); }
+
+.bg-on-black-container { background-color: var(--df-color-on-black-container, #ffffff); }
+.text-on-black-container { color: var(--df-color-on-black-container, #ffffff); }
+.border-on-black-container { border-color: var(--df-color-on-black-container, #ffffff); }
+

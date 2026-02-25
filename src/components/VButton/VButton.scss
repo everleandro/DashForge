@@ -1,0 +1,211 @@
+@use '../../styles/_mixins.scss' as *;
+@use '../../styles/global.scss' as *;
+@use "sass:map";
+
+/**
+ * VButton Component Styles
+ * ========================================================================
+ * CSS Variables used (defined in theme.scss/:root):
+ * 
+ * States: --df-btn-state-focus, --df-btn-state-hover, --df-btn-state-active
+ * Sizes: --df-btn-font-size-*, --df-btn-height-*
+ * Colors: --df-btn-bg-color, --df-btn-text-color, --df-btn-border-color
+ * Styles: --df-btn-border-radius, --df-btn-rounded-border-radius, --df-btn-shadow
+ * 
+ * Reference: See src/styles/_btn-variables.scss for full documentation
+ */
+
+.v-btn {
+  border: none;
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  padding: 0 1em;
+  min-width: 4em;
+  box-shadow: var(--df-btn-shadow, 0 3px 1px -2px rgb(0, 0, 0, 0.2), 0 2px 2px 0 rgb(0, 0, 0, 0.14), 0 1px 5px 0 rgb(0, 0, 0, 0.12));
+  height: var(--df-btn-height, var(--df-btn-height-default, unset));
+  font-size: var(--df-btn-font-size, var(--df-btn-font-size-default, inherit));
+  font-weight: var(--df-btn-font-weight);
+  letter-spacing: var(--df-btn-letter-spacing);
+  text-transform: var(--df-btn-text-transform);
+  transition-duration: var(--df-btn-transition-duration);
+  border-radius: var(--df-btn-border-radius);
+  font-family: var(--df-font-family);
+
+  // Color-based styling from CSS variables
+  background-color: var(--df-btn-bg-color);
+  color: var(--df-btn-text-color);
+  border-color: var(--df-btn-border-color);
+
+  .v-icon__svg {
+    fill: currentColor;
+  }
+
+  &__content {
+    line-height: initial;
+    flex-direction: column;
+  }
+
+  @include prefix(user-select, none);
+  text-decoration: none;
+  transition-property: box-shadow,
+  transform,
+  opacity,
+  background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+  white-space: nowrap;
+
+  @include button-before();
+
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+
+  &:active:not(.v-btn--text):not(.v-btn--depressed):not(.v-btn--disabled) {
+    transform: translateY(1px);
+    box-shadow: var(--df-btn-shadow-active, 0 1px 2px 0 rgb(0, 0, 0, 0.18));
+  }
+
+  &.v-btn {
+
+    &--icon,
+    &--fab {
+      padding: 0;
+      min-width: 0;
+      border-radius: 50%;
+    }
+  }
+
+  &--depressed,
+  &--disabled,
+  &--text {
+    box-shadow: none;
+  }
+
+
+  &--block {
+    &:not(.v-btn--fab):not(.v-btn--icon) {
+      display: flex;
+      flex: 1 0 auto;
+      min-width: 100% !important;
+    }
+  }
+
+  &--outlined {
+    border: 1px solid var(--df-btn-bg-color, var(--df-color-primary));
+    color: var(--df-btn-bg-color, var(--df-color-primary));
+    background-color: transparent;
+  }
+
+  &--text {
+    background-color: transparent;
+    color: var(--df-btn-bg-color, var(--df-color-primary));
+    box-shadow: none;
+  }
+
+  &--stacked {
+    flex-direction: column;
+
+    .v-btn {
+      &__prepend {
+        margin: 0 0 0.25rem 0;
+      }
+
+      &__append {
+        margin: 0.25rem 0 0 0;
+      }
+    }
+  }
+
+  &--icon {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  &--fab {
+    border-radius: 100%;
+  }
+
+  &--fab,
+  &--icon {
+
+    .v-btn__content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &--loading {
+    pointer-events: none;
+
+    .v-btn {
+
+      &__content,
+      &__append,
+      &__prepend {
+        opacity: 0;
+      }
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &__loader {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  $sizes: map.keys($df-sizes);
+
+  @each $state in ("focus", "hover", "active") {
+    &:#{$state}:before {
+      opacity: var(--df-btn-state-#{$state}, 0.1);
+    }
+  }
+
+  @each $size in $sizes {
+    &--size-#{$size} {
+      height: var(--df-btn-height, var(--df-btn-height-#{$size}));
+      font-size: var(--df-btn-font-size, var(--df-btn-font-size-#{$size}));
+
+      &.v-btn--fab {
+        height: var(--df-btn-height, var(--df-fab-height-#{$size}));
+        width: var(--df-btn-height, var(--df-fab-height-#{$size}));
+        font-size: var(--df-btn-font-size, var(--df-fab-font-sizes-#{$size}));
+      }
+
+      &.v-btn--icon {
+        width: var(--df-btn-height, var(--df-btn-height-#{$size}));
+      }
+
+      &.v-btn--stacked {
+        height: var(--df-btn-height, var(--df-stacked-height-#{$size}));
+      }
+    }
+  }
+
+  &__prepend {
+    margin-right: var(--df-btn-icon-spacing, 0.5rem);
+  }
+
+  &__append {
+    margin-left: var(--df-btn-icon-spacing, 0.5rem);
+  }
+
+}

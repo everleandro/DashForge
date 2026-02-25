@@ -5,10 +5,16 @@ import { lightTheme, darkTheme } from '../theme/themes'
 
 export interface DashboardUIOptions {
   theme?: PartialTheme | 'light' | 'dark'
+  /**
+   * Automatically generate utility classes (.bg-*, .text-*, .border-*) for custom theme colors
+   * @default false
+   */
+  generateUtilities?: boolean
 }
 
 export type DashboardUIState = {
   theme: Theme
+  generateUtilities: boolean
 }
 
 export const DashboardUIKey = Symbol('DashboardUI')
@@ -19,11 +25,12 @@ export function createDashboardUI(options: DashboardUIOptions = {}): Plugin {
     : mergeThemes(lightTheme, options.theme || {})
 
   const state = reactive<DashboardUIState>({
-    theme: initialTheme
+    theme: initialTheme,
+    generateUtilities: options.generateUtilities ?? false
   })
 
-  // Apply initial theme CSS variables
-  applyTheme(state.theme)
+  // Apply initial theme CSS variables and utility classes if enabled
+  applyTheme(state.theme, { generateUtilities: state.generateUtilities })
 
   return {
     install(app: App) {

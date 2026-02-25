@@ -1,138 +1,225 @@
-@use './_tokens' as *;
+// Auto-generated from tokens.ts - DO NOT EDIT MANUALLY
+// Generated: 2026-02-25T00:51:56.026Z
 
 :root {
   /* ========================================================================
-     COLORS
+     COLORS (LIGHT)
      ======================================================================== */
-  
-  // Primary
-  --df-color-primary: #{$df-color-primary};
-  --df-color-on-primary: #{$df-color-on-primary};
-  --df-color-primary-container: #{$df-color-primary-container};
-  --df-color-on-primary-container: #{$df-color-on-primary-container};
-  
-  // Secondary
-  --df-color-secondary: #{$df-color-secondary};
-  --df-color-on-secondary: #{$df-color-on-secondary};
-  --df-color-secondary-container: #{$df-color-secondary-container};
-  --df-color-on-secondary-container: #{$df-color-on-secondary-container};
-  
-  // Tertiary
-  --df-color-tertiary: #{$df-color-tertiary};
-  --df-color-on-tertiary: #{$df-color-on-tertiary};
-  --df-color-tertiary-container: #{$df-color-tertiary-container};
-  --df-color-on-tertiary-container: #{$df-color-on-tertiary-container};
-  
-  // Error
-  --df-color-error: #{$df-color-error};
-  --df-color-on-error: #{$df-color-on-error};
-  --df-color-error-container: #{$df-color-error-container};
-  --df-color-on-error-container: #{$df-color-on-error-container};
-  
-  // Neutral
-  --df-color-neutral: #{$df-color-neutral};
-  --df-color-on-neutral: #{$df-color-on-neutral};
-  --df-color-neutral-variant: #{$df-color-neutral-variant};
-  --df-color-on-neutral-variant: #{$df-color-on-neutral-variant};
-  
-  // Surface
-  --df-color-background: #{$df-color-background};
-  --df-color-surface: #{$df-color-surface};
-  --df-color-surface-dim: #{$df-color-surface-dim};
-  --df-color-surface-bright: #{$df-color-surface-bright};
-  --df-color-on-surface: #{$df-color-on-surface};
-  --df-color-on-surface-variant: #{$df-color-on-surface-variant};
-  
-  // Text
-  --df-color-text: #{$df-color-text};
-  --df-color-text-secondary: #{$df-color-text-secondary};
-  --df-color-text-tertiary: #{$df-color-text-tertiary};
-  
-  // Outline
-  --df-color-outline: #{$df-color-outline};
-  --df-color-outline-variant: #{$df-color-outline-variant};
-  
+  --df-color-primary: #00af67;
+  --df-color-on-primary: #ffffff;
+  --df-color-primary-container: #b1f5db;
+  --df-color-on-primary-container: #00291b;
+  --df-color-secondary: #625b71;
+  --df-color-on-secondary: #ffffff;
+  --df-color-secondary-container: #e8def8;
+  --df-color-on-secondary-container: #1d192b;
+  --df-color-success: #4caf50;
+  --df-color-on-success: #ffffff;
+  --df-color-success-container: #c8e6c9;
+  --df-color-on-success-container: #1b5e20;
+  --df-color-warning: #ffb300;
+  --df-color-on-warning: #000000;
+  --df-color-warning-container: #ffe082;
+  --df-color-on-warning-container: #ff6f00;
+  --df-color-error: #b3261e;
+  --df-color-on-error: #ffffff;
+  --df-color-error-container: #f9dedc;
+  --df-color-on-error-container: #410e0b;
+  --df-color-info: #2196f3;
+  --df-color-on-info: #ffffff;
+  --df-color-info-container: #bbdefb;
+  --df-color-on-info-container: #0d47a1;
+  --df-color-input: #eaddff;
+  --df-color-on-input: #000000;
+  --df-color-input-container: #fffbfe;
+  --df-color-on-input-container: #1c1b1f;
+  --df-color-grey: #79747e;
+  --df-color-on-grey: #ffffff;
+  --df-color-grey-container: #cac7d0;
+  --df-color-on-grey-container: #1c1b1f;
+  --df-color-disabled: #e0e0e0;
+  --df-color-on-disabled: #9e9e9e;
+  --df-color-disabled-container: #ded8e1;
+  --df-color-on-disabled-container: #1c1b1f;
+  --df-color-neutral: #1c1b1f;
+  --df-color-on-neutral: #ffffff;
+  --df-color-neutral-container: #fffbfe;
+  --df-color-on-neutral-container: #1c1b1f;
+  --df-color-neutral-variant: #49454e;
+  --df-color-on-neutral-variant: #ffffff;
+  --df-color-neutral-variant-container: #cac7d0;
+  --df-color-on-neutral-variant-container: #1c1b1f;
+  --df-color-background: #fffbfe;
+  --df-color-on-background: #1c1b1f;
+  --df-color-background-container: #fffbfe;
+  --df-color-on-background-container: #1c1b1f;
+  --df-color-surface: #fffbfe;
+  --df-color-on-surface: #1c1b1f;
+  --df-color-surface-container: #fffbfe;
+  --df-color-on-surface-container: #1c1b1f;
+  --df-color-surface-dim: #ded8e1;
+  --df-color-on-surface-dim: #1c1b1f;
+  --df-color-surface-dim-container: #ded8e1;
+  --df-color-on-surface-dim-container: #1c1b1f;
+  --df-color-surface-bright: #fffbfe;
+  --df-color-on-surface-bright: #1c1b1f;
+  --df-color-surface-bright-container: #fffbfe;
+  --df-color-on-surface-bright-container: #1c1b1f;
+  --df-color-on-surface-variant: #49454e;
+  --df-color-text: #1c1b1f;
+  --df-color-on-text: #fffbfe;
+  --df-color-text-container: #fffbfe;
+  --df-color-on-text-container: #1c1b1f;
+  --df-color-text-secondary: #49454e;
+  --df-color-on-text-secondary: #fffbfe;
+  --df-color-text-secondary-container: #fffbfe;
+  --df-color-on-text-secondary-container: #1c1b1f;
+  --df-color-text-tertiary: #79747e;
+  --df-color-on-text-tertiary: #fffbfe;
+  --df-color-text-tertiary-container: #fffbfe;
+  --df-color-on-text-tertiary-container: #1c1b1f;
+  --df-color-outline: #79747e;
+  --df-color-on-outline: #1c1b1f;
+  --df-color-outline-container: #ded8e1;
+  --df-color-on-outline-container: #1c1b1f;
+  --df-color-outline-variant: #cac7d0;
+  --df-color-on-outline-variant: #1c1b1f;
+  --df-color-outline-variant-container: #ded8e1;
+  --df-color-on-outline-variant-container: #1c1b1f;
+  --df-color-white: #ffffff;
+  --df-color-on-white: #000000;
+  --df-color-white-container: #fffbfe;
+  --df-color-on-white-container: #1c1b1f;
+  --df-color-black: #000000;
+  --df-color-on-black: #ffffff;
+  --df-color-black-container: #1c1b1f;
+  --df-color-on-black-container: #ffffff;
+
   /* ========================================================================
      SPACING
      ======================================================================== */
-  
-  --df-spacing-xs: #{$df-spacing-xs};
-  --df-spacing-sm: #{$df-spacing-sm};
-  --df-spacing-md: #{$df-spacing-md};
-  --df-spacing-lg: #{$df-spacing-lg};
-  --df-spacing-xl: #{$df-spacing-xl};
-  --df-spacing-2xl: #{$df-spacing-2xl};
-  
+  --df-spacing-xs: 4px;
+  --df-spacing-sm: 8px;
+  --df-spacing-md: 16px;
+  --df-spacing-lg: 24px;
+  --df-spacing-xl: 32px;
+  --df-spacing-2xl: 48px;
+
   /* ========================================================================
      TYPOGRAPHY - SIZES
      ======================================================================== */
-  
-  // Display
-  --df-font-size-display-large: #{$df-font-size-display-large};
-  --df-font-size-display-medium: #{$df-font-size-display-medium};
-  --df-font-size-display-small: #{$df-font-size-display-small};
-  
-  // Headline
-  --df-font-size-headline-large: #{$df-font-size-headline-large};
-  --df-font-size-headline-medium: #{$df-font-size-headline-medium};
-  --df-font-size-headline-small: #{$df-font-size-headline-small};
-  
-  // Title
-  --df-font-size-title-large: #{$df-font-size-title-large};
-  --df-font-size-title-medium: #{$df-font-size-title-medium};
-  --df-font-size-title-small: #{$df-font-size-title-small};
-  
-  // Body
-  --df-font-size-body-large: #{$df-font-size-body-large};
-  --df-font-size-body-medium: #{$df-font-size-body-medium};
-  --df-font-size-body-small: #{$df-font-size-body-small};
-  
-  // Label
-  --df-font-size-label-large: #{$df-font-size-label-large};
-  --df-font-size-label-medium: #{$df-font-size-label-medium};
-  --df-font-size-label-small: #{$df-font-size-label-small};
-  
+  --df-font-size-display-large: 57px;
+  --df-font-size-display-medium: 45px;
+  --df-font-size-display-small: 36px;
+  --df-font-size-headline-large: 32px;
+  --df-font-size-headline-medium: 28px;
+  --df-font-size-headline-small: 24px;
+  --df-font-size-title-large: 22px;
+  --df-font-size-title-medium: 16px;
+  --df-font-size-title-small: 14px;
+  --df-font-size-body-large: 16px;
+  --df-font-size-body-medium: 14px;
+  --df-font-size-body-small: 12px;
+  --df-font-size-label-large: 14px;
+  --df-font-size-label-medium: 12px;
+  --df-font-size-label-small: 11px;
+
+  /* ========================================================================
+     TYPOGRAPHY - TOKEN DETAIL (SIZE, WEIGHT, LINE-HEIGHT, LETTER-SPACING)
+     ======================================================================== */
+  --df-font-display-large-font-size: 57px;
+  --df-font-display-large-font-weight: 400;
+  --df-font-display-large-line-height: 64px;
+  --df-font-display-large-letter-spacing: 0px;
+  --df-font-display-medium-font-size: 45px;
+  --df-font-display-medium-font-weight: 400;
+  --df-font-display-medium-line-height: 52px;
+  --df-font-display-medium-letter-spacing: 0px;
+  --df-font-display-small-font-size: 36px;
+  --df-font-display-small-font-weight: 400;
+  --df-font-display-small-line-height: 44px;
+  --df-font-display-small-letter-spacing: 0px;
+  --df-font-headline-large-font-size: 32px;
+  --df-font-headline-large-font-weight: 400;
+  --df-font-headline-large-line-height: 40px;
+  --df-font-headline-large-letter-spacing: 0px;
+  --df-font-headline-medium-font-size: 28px;
+  --df-font-headline-medium-font-weight: 400;
+  --df-font-headline-medium-line-height: 36px;
+  --df-font-headline-medium-letter-spacing: 0px;
+  --df-font-headline-small-font-size: 24px;
+  --df-font-headline-small-font-weight: 400;
+  --df-font-headline-small-line-height: 32px;
+  --df-font-headline-small-letter-spacing: 0px;
+  --df-font-title-large-font-size: 22px;
+  --df-font-title-large-font-weight: 500;
+  --df-font-title-large-line-height: 28px;
+  --df-font-title-large-letter-spacing: 0px;
+  --df-font-title-medium-font-size: 16px;
+  --df-font-title-medium-font-weight: 500;
+  --df-font-title-medium-line-height: 24px;
+  --df-font-title-medium-letter-spacing: 0.15px;
+  --df-font-title-small-font-size: 14px;
+  --df-font-title-small-font-weight: 500;
+  --df-font-title-small-line-height: 20px;
+  --df-font-title-small-letter-spacing: 0.1px;
+  --df-font-body-large-font-size: 16px;
+  --df-font-body-large-font-weight: 400;
+  --df-font-body-large-line-height: 24px;
+  --df-font-body-large-letter-spacing: 0.5px;
+  --df-font-body-medium-font-size: 14px;
+  --df-font-body-medium-font-weight: 400;
+  --df-font-body-medium-line-height: 20px;
+  --df-font-body-medium-letter-spacing: 0.25px;
+  --df-font-body-small-font-size: 12px;
+  --df-font-body-small-font-weight: 400;
+  --df-font-body-small-line-height: 16px;
+  --df-font-body-small-letter-spacing: 0.4px;
+  --df-font-label-large-font-size: 14px;
+  --df-font-label-large-font-weight: 500;
+  --df-font-label-large-line-height: 20px;
+  --df-font-label-large-letter-spacing: 0.1px;
+  --df-font-label-medium-font-size: 12px;
+  --df-font-label-medium-font-weight: 500;
+  --df-font-label-medium-line-height: 16px;
+  --df-font-label-medium-letter-spacing: 0.5px;
+  --df-font-label-small-font-size: 11px;
+  --df-font-label-small-font-weight: 500;
+  --df-font-label-small-line-height: 16px;
+  --df-font-label-small-letter-spacing: 0.5px;
+
   /* ========================================================================
      TYPOGRAPHY - WEIGHTS & FAMILY
      ======================================================================== */
-  
-  --df-font-weight-regular: #{$df-font-weight-regular};
-  --df-font-weight-medium: #{$df-font-weight-medium};
-  --df-font-family: #{$df-font-family};
-  
+  --df-font-weight-regular: 400;
+  --df-font-weight-medium: 500;
+  --df-font-family: Roboto, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
   /* ========================================================================
      SHAPE (Border Radius)
      ======================================================================== */
-  
-  --df-corner-none: #{$df-corner-none};
-  --df-corner-extra-small: #{$df-corner-extra-small};
-  --df-corner-small: #{$df-corner-small};
-  --df-corner-medium: #{$df-corner-medium};
-  --df-corner-large: #{$df-corner-large};
-  --df-corner-extra-large: #{$df-corner-extra-large};
-  --df-corner-full: #{$df-corner-full};
-  
+  --df-corner-none: 0px;
+  --df-corner-extra-small: 4px;
+  --df-corner-small: 8px;
+  --df-corner-medium: 12px;
+  --df-corner-large: 16px;
+  --df-corner-extra-large: 28px;
+  --df-corner-full: 9999px;
+
   /* ========================================================================
      ELEVATION (Shadows)
      ======================================================================== */
-  
-  --df-elevation-0: #{$df-elevation-0};
-  --df-elevation-1: #{$df-elevation-1};
-  --df-elevation-2: #{$df-elevation-2};
-  --df-elevation-3: #{$df-elevation-3};
-  --df-elevation-4: #{$df-elevation-4};
-  --df-elevation-5: #{$df-elevation-5};
-  
-  /* ========================================================================
-     TRANSITIONS
-     ======================================================================== */
-  
-  --df-transition-short: #{$df-transition-short};
-  --df-transition-medium: #{$df-transition-medium};
-  --df-transition-long: #{$df-transition-long};
+  --df-elevation-0: none;
+  --df-elevation-1: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+  --df-elevation-2: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+  --df-elevation-3: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+  --df-elevation-4: 0px 15px 25px rgba(0, 0, 0, 0.15), 0px 10px 10px rgba(0, 0, 0, 0.05);
+  --df-elevation-5: 0px 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
 }
 
@@ -140,120 +227,12 @@ body {
   background: var(--df-color-background);
   color: var(--df-color-text);
   font-family: var(--df-font-family);
-  font-size: var(--df-font-size-body-medium);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 1.5;
+  font-size: var(--df-font-body-medium-font-size);
+  font-weight: var(--df-font-body-medium-font-weight);
+  line-height: var(--df-font-body-medium-line-height);
+  letter-spacing: var(--df-font-body-medium-letter-spacing);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* ============================================================================
-   TYPOGRAPHY UTILITY CLASSES
-   ============================================================================ */
-
-.df-display-large {
-  font-size: var(--df-font-size-display-large);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 64px;
-  letter-spacing: 0px;
-}
-
-.df-display-medium {
-  font-size: var(--df-font-size-display-medium);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 52px;
-  letter-spacing: 0px;
-}
-
-.df-display-small {
-  font-size: var(--df-font-size-display-small);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 44px;
-  letter-spacing: 0px;
-}
-
-.df-headline-large {
-  font-size: var(--df-font-size-headline-large);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 40px;
-  letter-spacing: 0px;
-}
-
-.df-headline-medium {
-  font-size: var(--df-font-size-headline-medium);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 36px;
-  letter-spacing: 0px;
-}
-
-.df-headline-small {
-  font-size: var(--df-font-size-headline-small);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 32px;
-  letter-spacing: 0px;
-}
-
-.df-title-large {
-  font-size: var(--df-font-size-title-large);
-  font-weight: var(--df-font-weight-medium);
-  line-height: 28px;
-  letter-spacing: 0px;
-}
-
-.df-title-medium {
-  font-size: var(--df-font-size-title-medium);
-  font-weight: var(--df-font-weight-medium);
-  line-height: 24px;
-  letter-spacing: 0.15px;
-}
-
-.df-title-small {
-  font-size: var(--df-font-size-title-small);
-  font-weight: var(--df-font-weight-medium);
-  line-height: 20px;
-  letter-spacing: 0.1px;
-}
-
-.df-body-large {
-  font-size: var(--df-font-size-body-large);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 24px;
-  letter-spacing: 0.5px;
-}
-
-.df-body-medium {
-  font-size: var(--df-font-size-body-medium);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 20px;
-  letter-spacing: 0.25px;
-}
-
-.df-body-small {
-  font-size: var(--df-font-size-body-small);
-  font-weight: var(--df-font-weight-regular);
-  line-height: 16px;
-  letter-spacing: 0.4px;
-}
-
-.df-label-large {
-  font-size: var(--df-font-size-label-large);
-  font-weight: var(--df-font-weight-medium);
-  line-height: 20px;
-  letter-spacing: 0.1px;
-}
-
-.df-label-medium {
-  font-size: var(--df-font-size-label-medium);
-  font-weight: var(--df-font-weight-medium);
-  line-height: 16px;
-  letter-spacing: 0.5px;
-}
-
-.df-label-small {
-  font-size: var(--df-font-size-label-small);
-  font-weight: var(--df-font-weight-medium);
-  line-height: 16px;
-  letter-spacing: 0.5px;
 }
 
 /* ============================================================================
@@ -262,51 +241,94 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    // Primary
-    --df-color-primary: #d0bcff;
-    --df-color-on-primary: #371e55;
-    --df-color-primary-container: #4f378b;
-    --df-color-on-primary-container: #eaddff;
-    
-    // Secondary
+    --df-color-primary: #7dffad;
+    --df-color-on-primary: #004d32;
+    --df-color-primary-container: #007348;
+    --df-color-on-primary-container: #b1f5db;
     --df-color-secondary: #ccc7d8;
     --df-color-on-secondary: #312e42;
     --df-color-secondary-container: #4a4458;
     --df-color-on-secondary-container: #e8def8;
-    
-    // Tertiary
-    --df-color-tertiary: #f0b6cd;
-    --df-color-on-tertiary: #492532;
-    --df-color-tertiary-container: #633b48;
-    --df-color-on-tertiary-container: #ffd8e4;
-    
-    // Error
+    --df-color-success: #81c784;
+    --df-color-on-success: #1b5e20;
+    --df-color-success-container: #388e3c;
+    --df-color-on-success-container: #c8e6c9;
+    --df-color-warning: #ffb300;
+    --df-color-on-warning: #ff6f00;
+    --df-color-warning-container: #ff8f00;
+    --df-color-on-warning-container: #ffe082;
     --df-color-error: #f2b8b5;
     --df-color-on-error: #601410;
     --df-color-error-container: #8c1d18;
     --df-color-on-error-container: #f9dedc;
-    
-    // Neutral
+    --df-color-info: #64b5f6;
+    --df-color-on-info: #0d47a1;
+    --df-color-info-container: #1976d2;
+    --df-color-on-info-container: #bbdefb;
+    --df-color-input: #523f7f;
+    --df-color-on-input: #eaddff;
+    --df-color-input-container: #1c1b1f;
+    --df-color-on-input-container: #e6e1e5;
+    --df-color-grey: #cac7d0;
+    --df-color-on-grey: #313033;
+    --df-color-grey-container: #49454e;
+    --df-color-on-grey-container: #e6e1e5;
+    --df-color-disabled: #616161;
+    --df-color-on-disabled: #757575;
+    --df-color-disabled-container: #0f0d13;
+    --df-color-on-disabled-container: #e6e1e5;
     --df-color-neutral: #e6e1e5;
     --df-color-on-neutral: #313033;
+    --df-color-neutral-container: #1c1b1f;
+    --df-color-on-neutral-container: #e6e1e5;
     --df-color-neutral-variant: #cac7d0;
     --df-color-on-neutral-variant: #49454e;
-    
-    // Surface
+    --df-color-neutral-variant-container: #49454e;
+    --df-color-on-neutral-variant-container: #e6e1e5;
     --df-color-background: #1c1b1f;
+    --df-color-on-background: #e6e1e5;
+    --df-color-background-container: #1c1b1f;
+    --df-color-on-background-container: #e6e1e5;
     --df-color-surface: #1c1b1f;
-    --df-color-surface-dim: #0f0d13;
-    --df-color-surface-bright: #36343b;
     --df-color-on-surface: #e6e1e5;
+    --df-color-surface-container: #36343b;
+    --df-color-on-surface-container: #e6e1e5;
+    --df-color-surface-dim: #0f0d13;
+    --df-color-on-surface-dim: #e6e1e5;
+    --df-color-surface-dim-container: #0f0d13;
+    --df-color-on-surface-dim-container: #e6e1e5;
+    --df-color-surface-bright: #36343b;
+    --df-color-on-surface-bright: #e6e1e5;
+    --df-color-surface-bright-container: #36343b;
+    --df-color-on-surface-bright-container: #e6e1e5;
     --df-color-on-surface-variant: #cac7d0;
-    
-    // Text
     --df-color-text: #e6e1e5;
+    --df-color-on-text: #1c1b1f;
+    --df-color-text-container: #1c1b1f;
+    --df-color-on-text-container: #e6e1e5;
     --df-color-text-secondary: #cac7d0;
+    --df-color-on-text-secondary: #1c1b1f;
+    --df-color-text-secondary-container: #1c1b1f;
+    --df-color-on-text-secondary-container: #e6e1e5;
     --df-color-text-tertiary: #b0adb8;
-    
-    // Outline
+    --df-color-on-text-tertiary: #1c1b1f;
+    --df-color-text-tertiary-container: #1c1b1f;
+    --df-color-on-text-tertiary-container: #e6e1e5;
     --df-color-outline: #938f99;
+    --df-color-on-outline: #e6e1e5;
+    --df-color-outline-container: #36343b;
+    --df-color-on-outline-container: #e6e1e5;
     --df-color-outline-variant: #49454e;
+    --df-color-on-outline-variant: #e6e1e5;
+    --df-color-outline-variant-container: #36343b;
+    --df-color-on-outline-variant-container: #e6e1e5;
+    --df-color-white: #ffffff;
+    --df-color-on-white: #000000;
+    --df-color-white-container: #1c1b1f;
+    --df-color-on-white-container: #e6e1e5;
+    --df-color-black: #000000;
+    --df-color-on-black: #ffffff;
+    --df-color-black-container: #1c1b1f;
+    --df-color-on-black-container: #ffffff;
   }
 }
