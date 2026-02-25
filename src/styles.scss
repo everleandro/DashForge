@@ -1,0 +1,23 @@
+/**
+ * DashForge UI Global Styles
+ * ============================================================================
+ * This file serves as the entry point for all global styles and CSS variables.
+ * 
+ * Usage in your app:
+ * // Option 1: Import as part of your CSS setup
+ * import 'dashforge-ui/dist/styles.es.css'
+ * 
+ * // Option 2: Link in HTML
+ * <link rel="stylesheet" href="node_modules/dashforge-ui/dist/styles.es.css">
+ * ============================================================================
+ */
+
+// Import all styles in the correct order
+// Note: Using @import instead of @use/@forward to ensure CSS output is included
+@import './styles/global.scss';
+@import './styles/theme.scss';
+@import './styles/components/_btn-variables.scss';
+@import './styles/components/_icon-variables.scss';
+@import './styles/ripple.scss';
+@import './styles/loaders.scss';
+@import './styles/utilities/colors.scss';

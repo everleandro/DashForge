@@ -1,0 +1,14 @@
+// ============================================================================
+// Component CSS Variables Index
+// ============================================================================
+// Central export point for all component CSS variables
+// All component CSS variables are defined in :root and are globally available
+// this file ensures proper module structure and visibility
+//
+// Available variables:
+// - Button variables: _btn-variables.scss
+// - Icon variables: _icon-variables.scss
+// ============================================================================
+
+@forward './_btn-variables.scss';
+@forward './_icon-variables.scss';
