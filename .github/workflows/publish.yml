@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      contents: read
+      contents: write
+      packages: write
 
     steps:
       - name: Checkout code
@@ -45,7 +46,8 @@ jobs:
         run: npm version patch
 
       - name: Push version bump
-        run: git push origin ${{ github.ref }} --follow-tags
+        run: |
+          git push --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
