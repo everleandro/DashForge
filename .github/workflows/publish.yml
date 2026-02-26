@@ -58,11 +58,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check OIDC token
-        run: |
-          echo "OIDC Token available: ${ACTIONS_ID_TOKEN_REQUEST_URL:+yes}"
-          npm debug this
-
       - name: Publish to npm
         run: npm publish --provenance --access public
         env:
