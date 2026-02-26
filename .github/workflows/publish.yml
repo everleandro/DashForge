@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: publish-workflow
+  cancel-in-progress: false
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -15,23 +19,48 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v4
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      # Setup Node with npm registry for OIDC
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm run test:run
-      - run: npm run build:lib
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
 
-      - run: |
+      # Type checking
+      - name: Run type checking
+        run: npm run typecheck
+
+      # Run tests
+      - name: Run tests
+        run: npm run test:run
+
+      # Build library
+      - name: Build library
+        run: npm run build:lib
+
+      # Configure git for version bump
+      - name: Configure Git
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - run: npm version patch
-      - run: git push --follow-tags
+      # Bump version
+      - name: Bump version
+        run: npm version patch
 
-      - run: npm publish --provenance --access public
+      # Push version bump and tags
+      - name: Push version bump
+        run: git push --follow-tags
+
+      # Publish using Trusted Publishing (OIDC)
+      - name: Publish to npm
+        run: npm publish --provenance --access public
