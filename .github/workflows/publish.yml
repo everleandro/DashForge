@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
-      - develop
 
 concurrency:
   group: publish-workflow
@@ -15,10 +13,10 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     environment: DashForge
+
     permissions:
-      id-token: write
       contents: write
-      packages: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -28,17 +26,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Configure npm registry
-        run: npm config set registry https://registry.npmjs.org/
-
-      - name: Update npm
-        run: npm install -g npm@10
-
-      - name: Show npm version
-        run: npm --version
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -61,13 +50,7 @@ jobs:
         run: npm version patch
 
       - name: Push version bump
-        run: |
-          git pull --rebase origin main || true
-          git push --follow-tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git push --follow-tags
 
       - name: Publish to npm
         run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
