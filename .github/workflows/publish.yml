@@ -10,6 +10,7 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    environment: DashForge
     permissions:
       id-token: write
       contents: write
