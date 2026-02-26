@@ -24,12 +24,9 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          registry-url: 'https://registry.npmjs.org'
 
-      - name: Configure npm for OIDC
-        run: |
-          npm config delete //registry.npmjs.org/:_authToken || true
-          npm config set --location=project registry https://registry.npmjs.org/
+      - name: Configure npm registry
+        run: npm config set registry https://registry.npmjs.org/
 
       - name: Update npm
         run: npm install -g npm@10
