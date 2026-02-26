@@ -7,6 +7,10 @@ on:
       - master
       - develop
 
+concurrency:
+  group: publish-workflow
+  cancel-in-progress: false
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -58,6 +62,7 @@ jobs:
 
       - name: Push version bump
         run: |
+          git pull --rebase origin main || true
           git push --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
