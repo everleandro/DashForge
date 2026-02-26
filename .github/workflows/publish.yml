@@ -16,51 +16,52 @@ jobs:
 
     permissions:
       contents: write
-      id-token: write
+      id-token: write  # necesario para OIDC
 
     steps:
-      # Checkout repository
+      # 1️⃣ Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Setup Node with npm registry for OIDC
+      # 2️⃣ Setup Node.js con OIDC para Trusted Publishing
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
+          auth-type: 'oidc'  # clave para Trusted Publishing
 
-      # Install dependencies
+      # 3️⃣ Instalar dependencias
       - name: Install dependencies
         run: npm ci
 
-      # Type checking
+      # 4️⃣ Type checking
       - name: Run type checking
         run: npm run typecheck
 
-      # Run tests
+      # 5️⃣ Ejecutar tests
       - name: Run tests
         run: npm run test:run
 
-      # Build library
+      # 6️⃣ Build de la librería
       - name: Build library
         run: npm run build:lib
 
-      # Configure git for version bump
+      # 7️⃣ Configurar Git para version bump
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Bump version
+      # 8️⃣ Bump de versión
       - name: Bump version
         run: npm version patch
 
-      # Push version bump and tags
+      # 9️⃣ Push de versión y tags
       - name: Push version bump
         run: git push --follow-tags
 
-      # Publish using Trusted Publishing (OIDC)
+      # 🔟 Publicar a NPM usando Trusted Publishing
       - name: Publish to npm
         run: npm publish --provenance --access public
