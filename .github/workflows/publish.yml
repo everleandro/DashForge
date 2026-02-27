@@ -34,32 +34,25 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
-      - name: Debug NPM configuration
+      - name: Configure npm for publishing
         run: |
-          echo "=== Checking npm configuration ==="
+          echo "=== NPM Configuration ==="
+          npm config list | head -20
+          
+          echo ""
+          echo "=== Removing any problematic .npmrc ==="
+          rm -f ~/.npmrc .npmrc || true
+          
+          echo "=== After cleanup ==="
           npm config get registry
-          echo ""
-          echo "=== Checking for .npmrc ==="
-          [ -f ~/.npmrc ] && echo "User .npmrc found:" && cat ~/.npmrc || echo "No user .npmrc"
-          echo ""
-          echo "=== NPM version ==="
-          npm --version
 
       - name: Unset any conflicting tokens
         run: |
-          # Remove any token that might have been injected
+          # Completely unset any token variables
           unset NODE_AUTH_TOKEN
           unset NPM_TOKEN
           
-          # Show what npm auth is configured (should be empty or only OIDC)
-          echo "=== Current npm auth config ==="
-          npm config get //registry.npmjs.org/:_authToken || echo "No authToken configured"
-          npm config get //registry.npmjs.org/:_auth || echo "No _auth configured"
-          
-          echo ""
-          echo "=== Checking for npm rc files ==="
-          test -f ~/.npmrc && echo "Found ~/.npmrc" || echo "No ~/.npmrc found"
-          test -f .npmrc && echo "Found .npmrc" || echo "No .npmrc found"
+          echo "Tokens unset for OIDC-only mode"
 
       - name: Install dependencies
         run: npm ci
@@ -84,35 +77,5 @@ jobs:
       - name: Push version bump
         run: git push --follow-tags
 
-      - name: Final OIDC verification before publish
-        run: |
-          echo "=== Ensuring no tokens are used, only OIDC ==="
-          
-          # Explicitly unset any token variables
-          unset NODE_AUTH_TOKEN
-          unset NPM_TOKEN
-          export NODE_AUTH_TOKEN=""
-          export NPM_TOKEN=""
-          
-          echo ""
-          echo "Configuration check:"
-          echo "  Registry: $(npm config get registry)"
-          
-          # Check if OIDC token would be used
-          echo ""
-          echo "  Checking OIDC token availability..."
-          if [ -n "${ACTIONS_ID_TOKEN_REQUEST_URL}" ]; then
-            echo "  ✓ OIDC token URL available (GitHub Actions OIDC)"
-          else
-            echo "  ⚠ OIDC token URL not available"
-          fi
-
       - name: Publish to npm
-        run: |
-          echo "=== Pre-publish checks ==="
-          echo "Registry: $(npm config get registry)"
-          echo "Package: dashforge-ui"
-          
-          echo ""
-          echo "=== Starting npm publish with OIDC ==="
-          npm publish --provenance --access public
+        run: npm publish --provenance --access public
