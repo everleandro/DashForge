@@ -50,26 +50,27 @@ jobs:
           npm config delete //registry.npmjs.org/:email || true
           
           echo ""
-          echo "=== 3️⃣ Removing .npmrc files ==="
+          echo "=== 3️⃣ Removing .npmrc files from ALL locations ==="
           rm -f ~/.npmrc || true
           rm -f .npmrc || true
+          rm -f /home/runner/work/_temp/.npmrc || true
           rm -f $(npm config get userconfig) 2>/dev/null || true
           
           echo ""
-          echo "=== 4️⃣ Verifying no tokens exist ==="
+          echo "=== 4️⃣ Resetting npm config to defaults ==="
+          npm config set //registry.npmjs.org/:_authToken "" --location=global || true
+          
+          echo ""
+          echo "=== 5️⃣ Verifying no tokens exist ==="
           echo "Global npm config:"
           npm config list --location=global 2>&1 | grep -v "^;" | grep -i "auth\|token\|_" || echo "✓ No auth tokens found"
           
           echo ""
-          echo "User npm config:"
-          npm config list --location=user 2>&1 | grep -v "^;" | grep -i "auth\|token\|_" || echo "✓ No auth tokens found"
-          
-          echo ""
-          echo "=== 5️⃣ Checking environment variables ==="
+          echo "=== 6️⃣ Checking environment variables ==="
           env | grep -i "npm_token\|npm_auth" || echo "✓ No npm tokens in environment variables"
           
           echo ""
-          echo "=== 6️⃣ Final npm configuration ==="
+          echo "=== 7️⃣ Final npm configuration ==="
           echo "Registry: $(npm config get registry)"
           echo "Node version: $(node --version)"
           echo "NPM version: $(npm --version)"
@@ -103,6 +104,30 @@ jobs:
       # 9️⃣ Push de versión y tags
       - name: Push version bump
         run: git push --follow-tags
+
+      # Final cleanup before publish
+      - name: Final cleanup and OIDC verification
+        run: |
+          echo "=== Final verification before npm publish ==="
+          echo ""
+          echo "Removing any remaining .npmrc files..."
+          rm -f ~/.npmrc .npmrc /home/runner/work/_temp/.npmrc 2>/dev/null || true
+          
+          echo ""
+          echo "Verifying OIDC token is available..."
+          if [ -n "$NODE_AUTH_TOKEN" ]; then
+            echo "❌ ERROR: NODE_AUTH_TOKEN is set! Clearing it..."
+            unset NODE_AUTH_TOKEN
+          else
+            echo "✓ NODE_AUTH_TOKEN is not set (good)"
+          fi
+          
+          echo ""
+          echo "Registry configuration:"
+          npm config get registry
+          
+          echo ""
+          echo "✓ Ready for OIDC-based npm publish"
 
       # 🔟 Publicar a NPM usando Trusted Publishing
       - name: Publish to npm
