@@ -43,7 +43,14 @@ jobs:
           EOF
           chmod 600 ~/.npmrc
           echo "Created ~/.npmrc with OIDC configuration"
-          cat ~/.npmrc
+          
+          # Force npm to negotiate OIDC token
+          echo ""
+          echo "Testing OIDC token negotiation..."
+          npm config get registry
+          
+          # Try to get OIDC token info (should work without classic token)
+          node -e "const {env} = process; console.log('ACTIONS_ID_TOKEN_REQUEST_URL:', env.ACTIONS_ID_TOKEN_REQUEST_URL ? 'SET' : 'NOT SET'); console.log('ACTIONS_ID_TOKEN_REQUEST_TOKEN:', env.ACTIONS_ID_TOKEN_REQUEST_TOKEN ? 'SET' : 'NOT SET');"
 
       - name: Unset any conflicting tokens
         run: |
@@ -110,14 +117,13 @@ jobs:
       - name: Publish to npm
         run: |
           echo "=== Pre-publish checks ==="
-          echo "Current user: $(npm whoami || echo 'Not logged in (expected with OIDC)')"
           echo "Registry: $(npm config get registry)"
-          echo "Package to publish: $(cat package.json | grep '\"name\"' | head -1)"
+          echo "Package: dashforge-ui"
+          
+          # Clean environment one more time
+          unset NODE_AUTH_TOKEN
+          unset NPM_TOKEN
+          
           echo ""
-          echo "=== Starting npm publish ==="
-          npm publish --provenance --access public --verbose 2>&1 || {
-            echo ""
-            echo "❌ Publish failed. Checking npm logs..."
-            [ -f ~/.npm/_logs/*-debug-0.log ] && tail -50 ~/.npm/_logs/*-debug-0.log
-            exit 1
-          }
+          echo "=== Starting npm publish with OIDC ==="
+          npm publish --provenance --access public
