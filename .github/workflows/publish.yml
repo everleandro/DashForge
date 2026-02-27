@@ -69,6 +69,25 @@ jobs:
       - name: Push version bump
         run: git push --follow-tags
 
+      # 🔟 Verificar y limpiar configuración npm
+      - name: Check and clean npm config
+        run: |
+          echo "=== NPM Config ==="
+          npm config list
+          echo ""
+          echo "=== Checking for stored tokens ==="
+          ls -la ~/.npmrc 2>/dev/null || echo "No ~/.npmrc file"
+          ls -la ~/.npm 2>/dev/null || echo "No ~/.npm directory"
+          echo ""
+          echo "=== Environment variables ==="
+          env | grep -i npm || echo "No npm environment variables"
+          echo ""
+          echo "=== Clearing npm credentials ==="
+          npm config delete //registry.npmjs.org/:_authToken || true
+          npm config delete //registry.npmjs.org/:_auth || true
+          npm config delete registry || true
+          echo "Done"
+
       # 🔟 Publicar a NPM usando Trusted Publishing
       - name: Publish to npm
         run: npm publish --provenance --access public
