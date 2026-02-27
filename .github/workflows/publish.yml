@@ -11,6 +11,7 @@ concurrency:
 
 jobs:
   build-and-publish:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     environment: DashForge
 
@@ -30,7 +31,6 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
-          auth-type: 'oidc'  # clave para Trusted Publishing
 
       # 3️⃣ Instalar dependencias
       - name: Install dependencies
