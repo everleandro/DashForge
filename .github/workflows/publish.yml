@@ -97,4 +97,16 @@ jobs:
           fi
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: |
+          echo "=== Pre-publish checks ==="
+          echo "Current user: $(npm whoami || echo 'Not logged in (expected with OIDC)')"
+          echo "Registry: $(npm config get registry)"
+          echo "Package to publish: $(cat package.json | grep '\"name\"' | head -1)"
+          echo ""
+          echo "=== Starting npm publish ==="
+          npm publish --provenance --access public --verbose 2>&1 || {
+            echo ""
+            echo "❌ Publish failed. Checking npm logs..."
+            [ -f ~/.npm/_logs/*-debug-0.log ] && tail -50 ~/.npm/_logs/*-debug-0.log
+            exit 1
+          }
