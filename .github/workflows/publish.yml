@@ -36,11 +36,43 @@ jobs:
         run: npm i -g npm@10.9.2
 
       # Configure .npmrc for OIDC
-      - name: Configure npm for OIDC
+      - name: Clean and verify no tokens are configured
         run: |
-          echo "Checking npm configuration..."
-          npm config get registry
-          npm config list --location=global | grep -i auth || echo "No auth config found"
+          echo "=== 1️⃣ Stopping npm daemon ==="
+          npm cache clean --force || true
+          
+          echo ""
+          echo "=== 2️⃣ Removing all stored tokens ==="
+          npm config delete //registry.npmjs.org/:_authToken || true
+          npm config delete //registry.npmjs.org/:_auth || true
+          npm config delete //registry.npmjs.org/:username || true
+          npm config delete //registry.npmjs.org/:_password || true
+          npm config delete //registry.npmjs.org/:email || true
+          
+          echo ""
+          echo "=== 3️⃣ Removing .npmrc files ==="
+          rm -f ~/.npmrc || true
+          rm -f .npmrc || true
+          rm -f $(npm config get userconfig) 2>/dev/null || true
+          
+          echo ""
+          echo "=== 4️⃣ Verifying no tokens exist ==="
+          echo "Global npm config:"
+          npm config list --location=global 2>&1 | grep -v "^;" | grep -i "auth\|token\|_" || echo "✓ No auth tokens found"
+          
+          echo ""
+          echo "User npm config:"
+          npm config list --location=user 2>&1 | grep -v "^;" | grep -i "auth\|token\|_" || echo "✓ No auth tokens found"
+          
+          echo ""
+          echo "=== 5️⃣ Checking environment variables ==="
+          env | grep -i "npm_token\|npm_auth" || echo "✓ No npm tokens in environment variables"
+          
+          echo ""
+          echo "=== 6️⃣ Final npm configuration ==="
+          echo "Registry: $(npm config get registry)"
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
 
       # 3️⃣ Instalar dependencias
       - name: Install dependencies
