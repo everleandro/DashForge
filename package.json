@@ -1,6 +1,6 @@
 {
   "name": "dashforge-ui",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "private": false,
   "description": "Dashboard-focused Vue 3 UI framework skeleton (TypeScript, Vite, SCSS, theming)",
   "main": "dist/index.umd.js",
