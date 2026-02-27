@@ -13,7 +13,6 @@ jobs:
   build-and-publish:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    environment: DashForge
 
     permissions:
       contents: write
