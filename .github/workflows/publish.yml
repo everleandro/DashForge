@@ -34,23 +34,16 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
-      - name: Configure .npmrc for OIDC
+      - name: Debug NPM configuration
         run: |
-          cat > ~/.npmrc << 'EOF'
-          @everleandro:registry=https://registry.npmjs.org/
-          registry=https://registry.npmjs.org/
-          always-auth=true
-          EOF
-          chmod 600 ~/.npmrc
-          echo "Created ~/.npmrc with OIDC configuration"
-          
-          # Force npm to negotiate OIDC token
-          echo ""
-          echo "Testing OIDC token negotiation..."
+          echo "=== Checking npm configuration ==="
           npm config get registry
-          
-          # Try to get OIDC token info (should work without classic token)
-          node -e "const {env} = process; console.log('ACTIONS_ID_TOKEN_REQUEST_URL:', env.ACTIONS_ID_TOKEN_REQUEST_URL ? 'SET' : 'NOT SET'); console.log('ACTIONS_ID_TOKEN_REQUEST_TOKEN:', env.ACTIONS_ID_TOKEN_REQUEST_TOKEN ? 'SET' : 'NOT SET');"
+          echo ""
+          echo "=== Checking for .npmrc ==="
+          [ -f ~/.npmrc ] && echo "User .npmrc found:" && cat ~/.npmrc || echo "No user .npmrc"
+          echo ""
+          echo "=== NPM version ==="
+          npm --version
 
       - name: Unset any conflicting tokens
         run: |
@@ -119,10 +112,6 @@ jobs:
           echo "=== Pre-publish checks ==="
           echo "Registry: $(npm config get registry)"
           echo "Package: dashforge-ui"
-          
-          # Clean environment one more time
-          unset NODE_AUTH_TOKEN
-          unset NPM_TOKEN
           
           echo ""
           echo "=== Starting npm publish with OIDC ==="
