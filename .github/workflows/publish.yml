@@ -65,6 +65,9 @@ jobs:
       - name: Push version bump
         run: git push --follow-tags
 
+      - name: Clean npm auth
+        run: rm -f ~/.npmrc .npmrc
+
       - name: npm whoami
         run: npm whoami || true
 
