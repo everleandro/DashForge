@@ -34,6 +34,17 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
+      - name: Configure .npmrc for OIDC
+        run: |
+          cat > ~/.npmrc << 'EOF'
+          @everleandro:registry=https://registry.npmjs.org/
+          registry=https://registry.npmjs.org/
+          always-auth=true
+          EOF
+          chmod 600 ~/.npmrc
+          echo "Created ~/.npmrc with OIDC configuration"
+          cat ~/.npmrc
+
       - name: Unset any conflicting tokens
         run: |
           # Remove any token that might have been injected
