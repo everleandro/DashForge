@@ -17,118 +17,41 @@ jobs:
 
     permissions:
       contents: write
-      id-token: write  # necesario para OIDC
+      id-token: write  # Required for OIDC
 
     steps:
-      # 1️⃣ Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js con OIDC para Trusted Publishing
-      - name: Setup Node.js
+      - name: Setup Node.js with OIDC
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
-      - name: Setup npm
-        run: npm i -g npm@10.9.2
-
-      # Configure .npmrc for OIDC
-      - name: Clean and verify no tokens are configured
-        run: |
-          echo "=== 1️⃣ Stopping npm daemon ==="
-          npm cache clean --force || true
-          
-          echo ""
-          echo "=== 2️⃣ Removing all stored tokens ==="
-          npm config delete //registry.npmjs.org/:_authToken || true
-          npm config delete //registry.npmjs.org/:_auth || true
-          npm config delete //registry.npmjs.org/:username || true
-          npm config delete //registry.npmjs.org/:_password || true
-          npm config delete //registry.npmjs.org/:email || true
-          
-          echo ""
-          echo "=== 3️⃣ Removing .npmrc files from ALL locations ==="
-          rm -f ~/.npmrc || true
-          rm -f .npmrc || true
-          rm -f /home/runner/work/_temp/.npmrc || true
-          rm -f $(npm config get userconfig) 2>/dev/null || true
-          
-          echo ""
-          echo "=== 4️⃣ Resetting npm config to defaults ==="
-          npm config set //registry.npmjs.org/:_authToken "" --location=global || true
-          
-          echo ""
-          echo "=== 5️⃣ Verifying no tokens exist ==="
-          echo "Global npm config:"
-          npm config list --location=global 2>&1 | grep -v "^;" | grep -i "auth\|token\|_" || echo "✓ No auth tokens found"
-          
-          echo ""
-          echo "=== 6️⃣ Checking environment variables ==="
-          env | grep -i "npm_token\|npm_auth" || echo "✓ No npm tokens in environment variables"
-          
-          echo ""
-          echo "=== 7️⃣ Final npm configuration ==="
-          echo "Registry: $(npm config get registry)"
-          echo "Node version: $(node --version)"
-          echo "NPM version: $(npm --version)"
-
-      # 3️⃣ Instalar dependencias
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Type checking
       - name: Run type checking
         run: npm run typecheck
 
-      # 5️⃣ Ejecutar tests
       - name: Run tests
         run: npm run test:run
 
-      # 6️⃣ Build de la librería
       - name: Build library
         run: npm run build:lib
 
-      # 7️⃣ Configurar Git para version bump
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      # 8️⃣ Bump de versión
       - name: Bump version
         run: npm version patch
 
-      # 9️⃣ Push de versión y tags
       - name: Push version bump
         run: git push --follow-tags
 
-      # Final cleanup before publish
-      - name: Final cleanup and OIDC verification
-        run: |
-          echo "=== Final verification before npm publish ==="
-          echo ""
-          echo "Removing any remaining .npmrc files..."
-          rm -f ~/.npmrc .npmrc /home/runner/work/_temp/.npmrc 2>/dev/null || true
-          
-          echo ""
-          echo "Verifying OIDC token is available..."
-          if [ -n "$NODE_AUTH_TOKEN" ]; then
-            echo "❌ ERROR: NODE_AUTH_TOKEN is set! Clearing it..."
-            unset NODE_AUTH_TOKEN
-          else
-            echo "✓ NODE_AUTH_TOKEN is not set (good)"
-          fi
-          
-          echo ""
-          echo "Registry configuration:"
-          npm config get registry
-          
-          echo ""
-          echo "✓ Ready for OIDC-based npm publish"
-
-      # 🔟 Publicar a NPM usando Trusted Publishing
       - name: Publish to npm
         run: npm publish --provenance --access public
