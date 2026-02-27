@@ -14,6 +14,10 @@ jobs:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     environment: DashForge
+    env:
+      NODE_AUTH_TOKEN: ''
+      NPM_TOKEN: ''
+      NPM_CONFIG_USERCONFIG: ''
 
     permissions:
       contents: write
