@@ -65,6 +65,9 @@ jobs:
       - name: Push version bump
         run: git push --follow-tags
 
+      - name: npm whoami
+        run: npm whoami || true
+
       # 🔟 Publicar a NPM usando Trusted Publishing
       - name: Publish to npm
         run: npm publish --provenance --access public
